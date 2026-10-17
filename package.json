@@ -1,0 +1,48 @@
+{
+  "name": "synthverse",
+  "version": "0.1.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -k -n web,api \"vite --host 127.0.0.1 --port 5173 --strictPort\" \"tsx watch --env-file-if-exists=.env services/api/server.ts\"",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --host 127.0.0.1 --port 4173",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "eval": "tsx evals/run.ts",
+    "eval:study": "tsx evals/agent-study.ts",
+    "eval:study:model": "tsx --env-file-if-exists=.env evals/agent-study.ts --live",
+    "eval:model": "tsx --env-file-if-exists=.env evals/run.ts --live",
+    "eval:creative": "tsx evals/creative-run.ts",
+    "eval:creative:model": "tsx --env-file-if-exists=.env evals/creative-run.ts --live",
+    "desktop:build": "npm run build && node scripts/build-desktop.mjs",
+    "desktop:dev": "npm run desktop:build && electron .",
+    "desktop:pack": "npm run desktop:build && electron-builder --config electron-builder.json --win portable --x64",
+    "test:desktop": "node scripts/test-desktop.mjs"
+  },
+  "dependencies": {
+    "@tonejs/midi": "^2.0.28",
+    "lucide-react": "^0.468.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "zod": "^4.0.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.55.0",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "concurrently": "^9.0.0",
+    "electron": "44.7.0",
+    "electron-builder": "26.15.3",
+    "esbuild": "0.28.2",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.0",
+    "vite": "^7.0.0",
+    "vitest": "^3.2.0"
+  },
+  "main": "desktop-dist/main.cjs",
+  "description": "SynthVerse conversational music inspiration studio",
+  "author": "SynthVerse"
+}

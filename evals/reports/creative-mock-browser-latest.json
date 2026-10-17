@@ -1,0 +1,4725 @@
+{
+  "kind": "scripted-mock-real-browser-render",
+  "model": null,
+  "generatedAt": "2026-10-09T07:17:13.757Z",
+  "cases": 12,
+  "runs": 12,
+  "passed": 12,
+  "limitation": "自动检查请求中的可测量变化与工程约束；听感、乐理解释、灵感价值需要人工评分。模拟模型通过率不代表真实模型质量。",
+  "rows": [
+    {
+      "id": "soft-glass",
+      "executionMode": "agent",
+      "passed": true,
+      "intentMatched": true,
+      "audioRenderNeeded": true,
+      "actualAudioRendered": true,
+      "followUpPassed": true,
+      "errorRecoveryExercised": null,
+      "reply": {
+        "message": "模拟模型已调用工具并收到真实浏览器指标。请试听比较后决定。",
+        "candidates": [
+          {
+            "title": "柔和玻璃音色与续改",
+            "explanation": "玻璃音色柔和一点，保留起音和旋律。",
+            "patch": {
+              "sound": {
+                "brightness": 24
+              }
+            },
+            "id": "candidate-00efcdb3-57d7-45f3-b6ec-d5795ccf9b8b",
+            "baseRevision": 0,
+            "project": {
+              "format": "synthverse-project",
+              "version": 3,
+              "title": "玻璃上的微光",
+              "bars": 2,
+              "revision": 1,
+              "bpm": 104,
+              "sound": {
+                "wave": "triangle",
+                "brightness": 24,
+                "attack": 0.015,
+                "release": 0.65,
+                "width": 7,
+                "glass": 32,
+                "oscillators": [
+                  {
+                    "enabled": true,
+                    "wave": "triangle",
+                    "level": 0.8,
+                    "transpose": 0,
+                    "fine": 0,
+                    "unison": 1,
+                    "detune": 7,
+                    "pan": 0,
+                    "position": 0,
+                    "table": "basic"
+                  },
+                  {
+                    "enabled": false,
+                    "wave": "triangle",
+                    "level": 0.35,
+                    "transpose": 0,
+                    "fine": 0,
+                    "unison": 1,
+                    "detune": 7,
+                    "pan": 0,
+                    "position": 0,
+                    "table": "basic"
+                  },
+                  {
+                    "enabled": false,
+                    "wave": "triangle",
+                    "level": 0.35,
+                    "transpose": 0,
+                    "fine": 0,
+                    "unison": 1,
+                    "detune": 7,
+                    "pan": 0,
+                    "position": 0,
+                    "table": "basic"
+                  }
+                ],
+                "filters": [
+                  {
+                    "enabled": true,
+                    "type": "lowpass",
+                    "cutoff": 15000,
+                    "resonance": 0.6,
+                    "envelope": 0
+                  },
+                  {
+                    "enabled": false,
+                    "type": "lowpass",
+                    "cutoff": 15000,
+                    "resonance": 0.6,
+                    "envelope": 0
+                  }
+                ],
+                "decay": 0.25,
+                "sustain": 0.6,
+                "noise": 0,
+                "sub": 0,
+                "env2": {
+                  "attack": 0.01,
+                  "decay": 0.5,
+                  "sustain": 0,
+                  "release": 0.3
+                },
+                "lfos": [
+                  {
+                    "wave": "sine",
+                    "rate": 2,
+                    "sync": false
+                  },
+                  {
+                    "wave": "triangle",
+                    "rate": 0.5,
+                    "sync": false
+                  }
+                ],
+                "modulations": [],
+                "effects": {
+                  "distortion": 0,
+                  "chorus": 0,
+                  "delay": 0,
+                  "delayTime": 0.25,
+                  "feedback": 0.3,
+                  "reverb": 0,
+                  "reverbTime": 1.2,
+                  "phaser": 0,
+                  "flanger": 0,
+                  "eqLow": 0,
+                  "eqMid": 0,
+                  "eqHigh": 0,
+                  "threshold": -8,
+                  "ratio": 12
+                }
+              },
+              "notes": [
+                {
+                  "id": "note-initial-1",
+                  "pitch": 60,
+                  "start": 0,
+                  "duration": 0.65,
+                  "velocity": 0.8
+                },
+                {
+                  "id": "note-initial-2",
+                  "pitch": 64,
+                  "start": 1,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-3",
+                  "pitch": 67,
+                  "start": 2,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-4",
+                  "pitch": 71,
+                  "start": 3,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-5",
+                  "pitch": 69,
+                  "start": 4,
+                  "duration": 0.65,
+                  "velocity": 0.8
+                },
+                {
+                  "id": "note-initial-6",
+                  "pitch": 67,
+                  "start": 5,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-7",
+                  "pitch": 64,
+                  "start": 6,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-8",
+                  "pitch": 62,
+                  "start": 7,
+                  "duration": 1,
+                  "velocity": 0.6
+                }
+              ],
+              "chords": [
+                {
+                  "id": "chord-initial-1",
+                  "name": "Cmaj7",
+                  "pitches": [
+                    60,
+                    64,
+                    67,
+                    71
+                  ],
+                  "start": 0,
+                  "duration": 4
+                },
+                {
+                  "id": "chord-initial-2",
+                  "name": "Am7",
+                  "pitches": [
+                    57,
+                    60,
+                    64,
+                    67
+                  ],
+                  "start": 4,
+                  "duration": 4
+                }
+              ],
+              "layers": {
+                "melody": true,
+                "harmony": false,
+                "bass": false
+              },
+              "locks": {
+                "sound": false,
+                "rhythm": false,
+                "harmony": false
+              }
+            },
+            "parentIds": [],
+            "assessment": {
+              "measured": true,
+              "findings": []
+            },
+            "citations": [],
+            "metrics": {
+              "basis": "browser-offline-audio",
+              "durationSeconds": 5.615396825396825,
+              "sampleRate": 44100,
+              "rms": 0.00958174294545968,
+              "peak": 0.03874973952770233,
+              "clippingRatio": 0,
+              "spectralCentroidHz": 377.83141013472004,
+              "highFrequencyEnergyRatio": 4.6662621993222126e-8
+            }
+          },
+          {
+            "title": "稍亮的对照",
+            "explanation": "亮度28，供比较",
+            "patch": {
+              "sound": {
+                "brightness": 28
+              }
+            },
+            "id": "candidate-be05cd84-5ad6-4d41-b789-9dcea8ed1f4d",
+            "baseRevision": 0,
+            "project": {
+              "format": "synthverse-project",
+              "version": 3,
+              "title": "玻璃上的微光",
+              "bars": 2,
+              "revision": 1,
+              "bpm": 104,
+              "sound": {
+                "wave": "triangle",
+                "brightness": 28,
+                "attack": 0.015,
+                "release": 0.65,
+                "width": 7,
+                "glass": 32,
+                "oscillators": [
+                  {
+                    "enabled": true,
+                    "wave": "triangle",
+                    "level": 0.8,
+                    "transpose": 0,
+                    "fine": 0,
+                    "unison": 1,
+                    "detune": 7,
+                    "pan": 0,
+                    "position": 0,
+                    "table": "basic"
+                  },
+                  {
+                    "enabled": false,
+                    "wave": "triangle",
+                    "level": 0.35,
+                    "transpose": 0,
+                    "fine": 0,
+                    "unison": 1,
+                    "detune": 7,
+                    "pan": 0,
+                    "position": 0,
+                    "table": "basic"
+                  },
+                  {
+                    "enabled": false,
+                    "wave": "triangle",
+                    "level": 0.35,
+                    "transpose": 0,
+                    "fine": 0,
+                    "unison": 1,
+                    "detune": 7,
+                    "pan": 0,
+                    "position": 0,
+                    "table": "basic"
+                  }
+                ],
+                "filters": [
+                  {
+                    "enabled": true,
+                    "type": "lowpass",
+                    "cutoff": 15000,
+                    "resonance": 0.6,
+                    "envelope": 0
+                  },
+                  {
+                    "enabled": false,
+                    "type": "lowpass",
+                    "cutoff": 15000,
+                    "resonance": 0.6,
+                    "envelope": 0
+                  }
+                ],
+                "decay": 0.25,
+                "sustain": 0.6,
+                "noise": 0,
+                "sub": 0,
+                "env2": {
+                  "attack": 0.01,
+                  "decay": 0.5,
+                  "sustain": 0,
+                  "release": 0.3
+                },
+                "lfos": [
+                  {
+                    "wave": "sine",
+                    "rate": 2,
+                    "sync": false
+                  },
+                  {
+                    "wave": "triangle",
+                    "rate": 0.5,
+                    "sync": false
+                  }
+                ],
+                "modulations": [],
+                "effects": {
+                  "distortion": 0,
+                  "chorus": 0,
+                  "delay": 0,
+                  "delayTime": 0.25,
+                  "feedback": 0.3,
+                  "reverb": 0,
+                  "reverbTime": 1.2,
+                  "phaser": 0,
+                  "flanger": 0,
+                  "eqLow": 0,
+                  "eqMid": 0,
+                  "eqHigh": 0,
+                  "threshold": -8,
+                  "ratio": 12
+                }
+              },
+              "notes": [
+                {
+                  "id": "note-initial-1",
+                  "pitch": 60,
+                  "start": 0,
+                  "duration": 0.65,
+                  "velocity": 0.8
+                },
+                {
+                  "id": "note-initial-2",
+                  "pitch": 64,
+                  "start": 1,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-3",
+                  "pitch": 67,
+                  "start": 2,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-4",
+                  "pitch": 71,
+                  "start": 3,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-5",
+                  "pitch": 69,
+                  "start": 4,
+                  "duration": 0.65,
+                  "velocity": 0.8
+                },
+                {
+                  "id": "note-initial-6",
+                  "pitch": 67,
+                  "start": 5,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-7",
+                  "pitch": 64,
+                  "start": 6,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-8",
+                  "pitch": 62,
+                  "start": 7,
+                  "duration": 1,
+                  "velocity": 0.6
+                }
+              ],
+              "chords": [
+                {
+                  "id": "chord-initial-1",
+                  "name": "Cmaj7",
+                  "pitches": [
+                    60,
+                    64,
+                    67,
+                    71
+                  ],
+                  "start": 0,
+                  "duration": 4
+                },
+                {
+                  "id": "chord-initial-2",
+                  "name": "Am7",
+                  "pitches": [
+                    57,
+                    60,
+                    64,
+                    67
+                  ],
+                  "start": 4,
+                  "duration": 4
+                }
+              ],
+              "layers": {
+                "melody": true,
+                "harmony": false,
+                "bass": false
+              },
+              "locks": {
+                "sound": false,
+                "rhythm": false,
+                "harmony": false
+              }
+            },
+            "parentIds": [],
+            "assessment": {
+              "measured": true,
+              "findings": []
+            },
+            "citations": [],
+            "metrics": {
+              "basis": "browser-offline-audio",
+              "durationSeconds": 5.615396825396825,
+              "sampleRate": 44100,
+              "rms": 0.009408249525665872,
+              "peak": 0.03857732191681862,
+              "clippingRatio": 0,
+              "spectralCentroidHz": 387.93415335730646,
+              "highFrequencyEnergyRatio": 8.975556161185218e-8
+            }
+          }
+        ],
+        "mode": "model",
+        "trace": {
+          "requestId": "6fb1a4f9-54ad-4d92-ac02-fb58df379bd5",
+          "durationMs": 483,
+          "events": [
+            {
+              "name": "model_step_1",
+              "status": "success",
+              "durationMs": 27,
+              "detail": "已收到模型响应；工具与最终回复仍需校验。"
+            },
+            {
+              "name": "get_project_context",
+              "status": "success",
+              "durationMs": 1,
+              "detail": "已执行确定性工具；工程未改变。"
+            },
+            {
+              "name": "analyze_music",
+              "status": "success",
+              "durationMs": 0,
+              "detail": "已执行确定性工具；工程未改变。"
+            },
+            {
+              "name": "model_step_2",
+              "status": "success",
+              "durationMs": 11,
+              "detail": "已收到模型响应；工具与最终回复仍需校验。"
+            },
+            {
+              "name": "edit_sound",
+              "status": "success",
+              "durationMs": 19,
+              "detail": "已执行确定性工具；工程未改变。"
+            },
+            {
+              "name": "model_step_3",
+              "status": "success",
+              "durationMs": 6,
+              "detail": "已收到模型响应；工具与最终回复仍需校验。"
+            },
+            {
+              "name": "propose_edit",
+              "status": "success",
+              "durationMs": 4,
+              "detail": "已执行确定性工具；工程未改变。"
+            },
+            {
+              "name": "propose_edit",
+              "status": "success",
+              "durationMs": 2,
+              "detail": "已执行确定性工具；工程未改变。"
+            },
+            {
+              "name": "model_step_4",
+              "status": "success",
+              "durationMs": 5,
+              "detail": "已收到模型响应；工具与最终回复仍需校验。"
+            },
+            {
+              "name": "render_preview",
+              "status": "success",
+              "durationMs": 245,
+              "detail": "已执行确定性工具；工程未改变。"
+            },
+            {
+              "name": "render_preview",
+              "status": "success",
+              "durationMs": 147,
+              "detail": "已执行确定性工具；工程未改变。"
+            },
+            {
+              "name": "model_step_5",
+              "status": "success",
+              "durationMs": 8,
+              "detail": "已收到模型响应；工具与最终回复仍需校验。"
+            },
+            {
+              "name": "compare_candidates",
+              "status": "success",
+              "durationMs": 1,
+              "detail": "已执行确定性工具；工程未改变。"
+            },
+            {
+              "name": "model_step_6",
+              "status": "success",
+              "durationMs": 4,
+              "detail": "已收到模型响应；工具与最终回复仍需校验。"
+            },
+            {
+              "name": "validate_final_reply",
+              "status": "success",
+              "durationMs": 1,
+              "detail": "最终回复校验通过，引用2个本轮候选。"
+            },
+            {
+              "name": "render_preview_final",
+              "status": "success",
+              "durationMs": 0,
+              "detail": "浏览器离线渲染与指标分析完成。"
+            },
+            {
+              "name": "render_preview_final",
+              "status": "success",
+              "durationMs": 0,
+              "detail": "浏览器离线渲染与指标分析完成。"
+            }
+          ],
+          "usage": {
+            "inputTokens": 600,
+            "outputTokens": 180
+          }
+        }
+      },
+      "followUp": {
+        "message": "模拟模型已调用工具并收到真实浏览器指标。请试听比较后决定。",
+        "candidates": [
+          {
+            "title": "柔和玻璃音色与续改",
+            "explanation": "玻璃音色柔和一点，保留起音和旋律。",
+            "patch": {
+              "sound": {
+                "brightness": 24,
+                "release": 0.2
+              }
+            },
+            "id": "candidate-b698f74c-8027-4d8f-9054-670de0dfcc9a",
+            "baseRevision": 0,
+            "project": {
+              "format": "synthverse-project",
+              "version": 3,
+              "title": "玻璃上的微光",
+              "bars": 2,
+              "revision": 1,
+              "bpm": 104,
+              "sound": {
+                "wave": "triangle",
+                "brightness": 24,
+                "attack": 0.015,
+                "release": 0.2,
+                "width": 7,
+                "glass": 32,
+                "oscillators": [
+                  {
+                    "enabled": true,
+                    "wave": "triangle",
+                    "level": 0.8,
+                    "transpose": 0,
+                    "fine": 0,
+                    "unison": 1,
+                    "detune": 7,
+                    "pan": 0,
+                    "position": 0,
+                    "table": "basic"
+                  },
+                  {
+                    "enabled": false,
+                    "wave": "triangle",
+                    "level": 0.35,
+                    "transpose": 0,
+                    "fine": 0,
+                    "unison": 1,
+                    "detune": 7,
+                    "pan": 0,
+                    "position": 0,
+                    "table": "basic"
+                  },
+                  {
+                    "enabled": false,
+                    "wave": "triangle",
+                    "level": 0.35,
+                    "transpose": 0,
+                    "fine": 0,
+                    "unison": 1,
+                    "detune": 7,
+                    "pan": 0,
+                    "position": 0,
+                    "table": "basic"
+                  }
+                ],
+                "filters": [
+                  {
+                    "enabled": true,
+                    "type": "lowpass",
+                    "cutoff": 15000,
+                    "resonance": 0.6,
+                    "envelope": 0
+                  },
+                  {
+                    "enabled": false,
+                    "type": "lowpass",
+                    "cutoff": 15000,
+                    "resonance": 0.6,
+                    "envelope": 0
+                  }
+                ],
+                "decay": 0.25,
+                "sustain": 0.6,
+                "noise": 0,
+                "sub": 0,
+                "env2": {
+                  "attack": 0.01,
+                  "decay": 0.5,
+                  "sustain": 0,
+                  "release": 0.3
+                },
+                "lfos": [
+                  {
+                    "wave": "sine",
+                    "rate": 2,
+                    "sync": false
+                  },
+                  {
+                    "wave": "triangle",
+                    "rate": 0.5,
+                    "sync": false
+                  }
+                ],
+                "modulations": [],
+                "effects": {
+                  "distortion": 0,
+                  "chorus": 0,
+                  "delay": 0,
+                  "delayTime": 0.25,
+                  "feedback": 0.3,
+                  "reverb": 0,
+                  "reverbTime": 1.2,
+                  "phaser": 0,
+                  "flanger": 0,
+                  "eqLow": 0,
+                  "eqMid": 0,
+                  "eqHigh": 0,
+                  "threshold": -8,
+                  "ratio": 12
+                }
+              },
+              "notes": [
+                {
+                  "id": "note-initial-1",
+                  "pitch": 60,
+                  "start": 0,
+                  "duration": 0.65,
+                  "velocity": 0.8
+                },
+                {
+                  "id": "note-initial-2",
+                  "pitch": 64,
+                  "start": 1,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-3",
+                  "pitch": 67,
+                  "start": 2,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-4",
+                  "pitch": 71,
+                  "start": 3,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-5",
+                  "pitch": 69,
+                  "start": 4,
+                  "duration": 0.65,
+                  "velocity": 0.8
+                },
+                {
+                  "id": "note-initial-6",
+                  "pitch": 67,
+                  "start": 5,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-7",
+                  "pitch": 64,
+                  "start": 6,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-8",
+                  "pitch": 62,
+                  "start": 7,
+                  "duration": 1,
+                  "velocity": 0.6
+                }
+              ],
+              "chords": [
+                {
+                  "id": "chord-initial-1",
+                  "name": "Cmaj7",
+                  "pitches": [
+                    60,
+                    64,
+                    67,
+                    71
+                  ],
+                  "start": 0,
+                  "duration": 4
+                },
+                {
+                  "id": "chord-initial-2",
+                  "name": "Am7",
+                  "pitches": [
+                    57,
+                    60,
+                    64,
+                    67
+                  ],
+                  "start": 4,
+                  "duration": 4
+                }
+              ],
+              "layers": {
+                "melody": true,
+                "harmony": false,
+                "bass": false
+              },
+              "locks": {
+                "sound": false,
+                "rhythm": false,
+                "harmony": false
+              }
+            },
+            "parentIds": [
+              "candidate-00efcdb3-57d7-45f3-b6ec-d5795ccf9b8b"
+            ],
+            "assessment": {
+              "measured": true,
+              "findings": []
+            },
+            "citations": [],
+            "metrics": {
+              "basis": "browser-offline-audio",
+              "durationSeconds": 5.615396825396825,
+              "sampleRate": 44100,
+              "rms": 0.008581181736011006,
+              "peak": 0.03477272018790245,
+              "clippingRatio": 0,
+              "spectralCentroidHz": 382.7941968956721,
+              "highFrequencyEnergyRatio": 4.5703508931937464e-8
+            }
+          }
+        ],
+        "mode": "model",
+        "trace": {
+          "requestId": "77a2db8f-4f27-45a8-8f96-42d8e7665efd",
+          "durationMs": 157,
+          "events": [
+            {
+              "name": "model_step_1",
+              "status": "success",
+              "durationMs": 4,
+              "detail": "已收到模型响应；工具与最终回复仍需校验。"
+            },
+            {
+              "name": "get_project_context",
+              "status": "success",
+              "durationMs": 0,
+              "detail": "已执行确定性工具；工程未改变。"
+            },
+            {
+              "name": "analyze_music",
+              "status": "success",
+              "durationMs": 0,
+              "detail": "已执行确定性工具；工程未改变。"
+            },
+            {
+              "name": "model_step_2",
+              "status": "success",
+              "durationMs": 4,
+              "detail": "已收到模型响应；工具与最终回复仍需校验。"
+            },
+            {
+              "name": "propose_edit",
+              "status": "success",
+              "durationMs": 3,
+              "detail": "已执行确定性工具；工程未改变。"
+            },
+            {
+              "name": "model_step_3",
+              "status": "success",
+              "durationMs": 5,
+              "detail": "已收到模型响应；工具与最终回复仍需校验。"
+            },
+            {
+              "name": "render_preview",
+              "status": "success",
+              "durationMs": 136,
+              "detail": "已执行确定性工具；工程未改变。"
+            },
+            {
+              "name": "model_step_4",
+              "status": "success",
+              "durationMs": 3,
+              "detail": "已收到模型响应；工具与最终回复仍需校验。"
+            },
+            {
+              "name": "validate_final_reply",
+              "status": "success",
+              "durationMs": 0,
+              "detail": "最终回复校验通过，引用1个本轮候选。"
+            },
+            {
+              "name": "render_preview_final",
+              "status": "success",
+              "durationMs": 0,
+              "detail": "浏览器离线渲染与指标分析完成。"
+            }
+          ],
+          "usage": {
+            "inputTokens": 400,
+            "outputTokens": 120
+          }
+        }
+      },
+      "manualScores": {
+        "requestFit": null,
+        "musicalQuality": null,
+        "inspiration": null
+      },
+      "manualReview": "pending"
+    },
+    {
+      "id": "short-release",
+      "executionMode": "agent",
+      "passed": true,
+      "intentMatched": true,
+      "audioRenderNeeded": true,
+      "actualAudioRendered": true,
+      "followUpPassed": true,
+      "errorRecoveryExercised": null,
+      "reply": {
+        "message": "模拟模型已调用工具并收到真实浏览器指标。请试听比较后决定。",
+        "candidates": [
+          {
+            "title": "精确修改尾音",
+            "explanation": "只把尾音缩短到0.2秒，其他参数保持。",
+            "patch": {
+              "sound": {
+                "release": 0.2
+              }
+            },
+            "id": "candidate-ef9bf4f9-8495-4d70-be02-a73e3aba5a49",
+            "baseRevision": 0,
+            "project": {
+              "format": "synthverse-project",
+              "version": 3,
+              "title": "玻璃上的微光",
+              "bars": 2,
+              "revision": 1,
+              "bpm": 104,
+              "sound": {
+                "wave": "triangle",
+                "brightness": 42,
+                "attack": 0.015,
+                "release": 0.2,
+                "width": 7,
+                "glass": 32,
+                "oscillators": [
+                  {
+                    "enabled": true,
+                    "wave": "triangle",
+                    "level": 0.8,
+                    "transpose": 0,
+                    "fine": 0,
+                    "unison": 1,
+                    "detune": 7,
+                    "pan": 0,
+                    "position": 0,
+                    "table": "basic"
+                  },
+                  {
+                    "enabled": false,
+                    "wave": "triangle",
+                    "level": 0.35,
+                    "transpose": 0,
+                    "fine": 0,
+                    "unison": 1,
+                    "detune": 7,
+                    "pan": 0,
+                    "position": 0,
+                    "table": "basic"
+                  },
+                  {
+                    "enabled": false,
+                    "wave": "triangle",
+                    "level": 0.35,
+                    "transpose": 0,
+                    "fine": 0,
+                    "unison": 1,
+                    "detune": 7,
+                    "pan": 0,
+                    "position": 0,
+                    "table": "basic"
+                  }
+                ],
+                "filters": [
+                  {
+                    "enabled": true,
+                    "type": "lowpass",
+                    "cutoff": 15000,
+                    "resonance": 0.6,
+                    "envelope": 0
+                  },
+                  {
+                    "enabled": false,
+                    "type": "lowpass",
+                    "cutoff": 15000,
+                    "resonance": 0.6,
+                    "envelope": 0
+                  }
+                ],
+                "decay": 0.25,
+                "sustain": 0.6,
+                "noise": 0,
+                "sub": 0,
+                "env2": {
+                  "attack": 0.01,
+                  "decay": 0.5,
+                  "sustain": 0,
+                  "release": 0.3
+                },
+                "lfos": [
+                  {
+                    "wave": "sine",
+                    "rate": 2,
+                    "sync": false
+                  },
+                  {
+                    "wave": "triangle",
+                    "rate": 0.5,
+                    "sync": false
+                  }
+                ],
+                "modulations": [],
+                "effects": {
+                  "distortion": 0,
+                  "chorus": 0,
+                  "delay": 0,
+                  "delayTime": 0.25,
+                  "feedback": 0.3,
+                  "reverb": 0,
+                  "reverbTime": 1.2,
+                  "phaser": 0,
+                  "flanger": 0,
+                  "eqLow": 0,
+                  "eqMid": 0,
+                  "eqHigh": 0,
+                  "threshold": -8,
+                  "ratio": 12
+                }
+              },
+              "notes": [
+                {
+                  "id": "note-initial-1",
+                  "pitch": 60,
+                  "start": 0,
+                  "duration": 0.65,
+                  "velocity": 0.8
+                },
+                {
+                  "id": "note-initial-2",
+                  "pitch": 64,
+                  "start": 1,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-3",
+                  "pitch": 67,
+                  "start": 2,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-4",
+                  "pitch": 71,
+                  "start": 3,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-5",
+                  "pitch": 69,
+                  "start": 4,
+                  "duration": 0.65,
+                  "velocity": 0.8
+                },
+                {
+                  "id": "note-initial-6",
+                  "pitch": 67,
+                  "start": 5,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-7",
+                  "pitch": 64,
+                  "start": 6,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-8",
+                  "pitch": 62,
+                  "start": 7,
+                  "duration": 1,
+                  "velocity": 0.6
+                }
+              ],
+              "chords": [
+                {
+                  "id": "chord-initial-1",
+                  "name": "Cmaj7",
+                  "pitches": [
+                    60,
+                    64,
+                    67,
+                    71
+                  ],
+                  "start": 0,
+                  "duration": 4
+                },
+                {
+                  "id": "chord-initial-2",
+                  "name": "Am7",
+                  "pitches": [
+                    57,
+                    60,
+                    64,
+                    67
+                  ],
+                  "start": 4,
+                  "duration": 4
+                }
+              ],
+              "layers": {
+                "melody": true,
+                "harmony": false,
+                "bass": false
+              },
+              "locks": {
+                "sound": false,
+                "rhythm": false,
+                "harmony": false
+              }
+            },
+            "parentIds": [],
+            "assessment": {
+              "measured": true,
+              "findings": []
+            },
+            "citations": [],
+            "metrics": {
+              "basis": "browser-offline-audio",
+              "durationSeconds": 5.615396825396825,
+              "sampleRate": 44100,
+              "rms": 0.008137291904256765,
+              "peak": 0.03608822077512741,
+              "clippingRatio": 0,
+              "spectralCentroidHz": 434.0795625790942,
+              "highFrequencyEnergyRatio": 8.522197507967616e-7
+            }
+          }
+        ],
+        "mode": "model",
+        "trace": {
+          "requestId": "a467a7e6-147d-4dcd-9128-a27c6ab2e99c",
+          "durationMs": 156,
+          "events": [
+            {
+              "name": "model_step_1",
+              "status": "success",
+              "durationMs": 5,
+              "detail": "已收到模型响应；工具与最终回复仍需校验。"
+            },
+            {
+              "name": "get_project_context",
+              "status": "success",
+              "durationMs": 0,
+              "detail": "已执行确定性工具；工程未改变。"
+            },
+            {
+              "name": "analyze_music",
+              "status": "success",
+              "durationMs": 0,
+              "detail": "已执行确定性工具；工程未改变。"
+            },
+            {
+              "name": "model_step_2",
+              "status": "success",
+              "durationMs": 3,
+              "detail": "已收到模型响应；工具与最终回复仍需校验。"
+            },
+            {
+              "name": "propose_edit",
+              "status": "success",
+              "durationMs": 1,
+              "detail": "已执行确定性工具；工程未改变。"
+            },
+            {
+              "name": "model_step_3",
+              "status": "success",
+              "durationMs": 2,
+              "detail": "已收到模型响应；工具与最终回复仍需校验。"
+            },
+            {
+              "name": "render_preview",
+              "status": "success",
+              "durationMs": 140,
+              "detail": "已执行确定性工具；工程未改变。"
+            },
+            {
+              "name": "model_step_4",
+              "status": "success",
+              "durationMs": 4,
+              "detail": "已收到模型响应；工具与最终回复仍需校验。"
+            },
+            {
+              "name": "validate_final_reply",
+              "status": "success",
+              "durationMs": 0,
+              "detail": "最终回复校验通过，引用1个本轮候选。"
+            },
+            {
+              "name": "render_preview_final",
+              "status": "success",
+              "durationMs": 0,
+              "detail": "浏览器离线渲染与指标分析完成。"
+            }
+          ],
+          "usage": {
+            "inputTokens": 400,
+            "outputTokens": 120
+          }
+        }
+      },
+      "manualScores": {
+        "requestFit": null,
+        "musicalQuality": null,
+        "inspiration": null
+      },
+      "manualReview": "pending"
+    },
+    {
+      "id": "selected-ending",
+      "executionMode": "agent",
+      "passed": true,
+      "intentMatched": true,
+      "audioRenderNeeded": true,
+      "actualAudioRendered": true,
+      "followUpPassed": true,
+      "errorRecoveryExercised": null,
+      "reply": {
+        "message": "模拟模型已调用工具并收到真实浏览器指标。请试听比较后决定。",
+        "candidates": [
+          {
+            "title": "只改选中的末音",
+            "explanation": "只将选中末音改成C5，其余音符和节奏保持。",
+            "patch": {
+              "notes": [
+                {
+                  "id": "note-initial-1",
+                  "pitch": 60,
+                  "start": 0,
+                  "duration": 0.65,
+                  "velocity": 0.8
+                },
+                {
+                  "id": "note-initial-2",
+                  "pitch": 64,
+                  "start": 1,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-3",
+                  "pitch": 67,
+                  "start": 2,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-4",
+                  "pitch": 71,
+                  "start": 3,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-5",
+                  "pitch": 69,
+                  "start": 4,
+                  "duration": 0.65,
+                  "velocity": 0.8
+                },
+                {
+                  "id": "note-initial-6",
+                  "pitch": 67,
+                  "start": 5,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-7",
+                  "pitch": 64,
+                  "start": 6,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-8",
+                  "pitch": 72,
+                  "start": 7,
+                  "duration": 1,
+                  "velocity": 0.6
+                }
+              ]
+            },
+            "id": "candidate-45cfe12d-f763-4b57-99b4-7735aa814248",
+            "baseRevision": 0,
+            "project": {
+              "format": "synthverse-project",
+              "version": 3,
+              "title": "玻璃上的微光",
+              "bars": 2,
+              "revision": 1,
+              "bpm": 104,
+              "sound": {
+                "wave": "triangle",
+                "brightness": 42,
+                "attack": 0.015,
+                "release": 0.65,
+                "width": 7,
+                "glass": 32,
+                "oscillators": [
+                  {
+                    "enabled": true,
+                    "wave": "triangle",
+                    "level": 0.8,
+                    "transpose": 0,
+                    "fine": 0,
+                    "unison": 1,
+                    "detune": 7,
+                    "pan": 0,
+                    "position": 0,
+                    "table": "basic"
+                  },
+                  {
+                    "enabled": false,
+                    "wave": "triangle",
+                    "level": 0.35,
+                    "transpose": 0,
+                    "fine": 0,
+                    "unison": 1,
+                    "detune": 7,
+                    "pan": 0,
+                    "position": 0,
+                    "table": "basic"
+                  },
+                  {
+                    "enabled": false,
+                    "wave": "triangle",
+                    "level": 0.35,
+                    "transpose": 0,
+                    "fine": 0,
+                    "unison": 1,
+                    "detune": 7,
+                    "pan": 0,
+                    "position": 0,
+                    "table": "basic"
+                  }
+                ],
+                "filters": [
+                  {
+                    "enabled": true,
+                    "type": "lowpass",
+                    "cutoff": 15000,
+                    "resonance": 0.6,
+                    "envelope": 0
+                  },
+                  {
+                    "enabled": false,
+                    "type": "lowpass",
+                    "cutoff": 15000,
+                    "resonance": 0.6,
+                    "envelope": 0
+                  }
+                ],
+                "decay": 0.25,
+                "sustain": 0.6,
+                "noise": 0,
+                "sub": 0,
+                "env2": {
+                  "attack": 0.01,
+                  "decay": 0.5,
+                  "sustain": 0,
+                  "release": 0.3
+                },
+                "lfos": [
+                  {
+                    "wave": "sine",
+                    "rate": 2,
+                    "sync": false
+                  },
+                  {
+                    "wave": "triangle",
+                    "rate": 0.5,
+                    "sync": false
+                  }
+                ],
+                "modulations": [],
+                "effects": {
+                  "distortion": 0,
+                  "chorus": 0,
+                  "delay": 0,
+                  "delayTime": 0.25,
+                  "feedback": 0.3,
+                  "reverb": 0,
+                  "reverbTime": 1.2,
+                  "phaser": 0,
+                  "flanger": 0,
+                  "eqLow": 0,
+                  "eqMid": 0,
+                  "eqHigh": 0,
+                  "threshold": -8,
+                  "ratio": 12
+                }
+              },
+              "notes": [
+                {
+                  "id": "note-initial-1",
+                  "pitch": 60,
+                  "start": 0,
+                  "duration": 0.65,
+                  "velocity": 0.8
+                },
+                {
+                  "id": "note-initial-2",
+                  "pitch": 64,
+                  "start": 1,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-3",
+                  "pitch": 67,
+                  "start": 2,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-4",
+                  "pitch": 71,
+                  "start": 3,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-5",
+                  "pitch": 69,
+                  "start": 4,
+                  "duration": 0.65,
+                  "velocity": 0.8
+                },
+                {
+                  "id": "note-initial-6",
+                  "pitch": 67,
+                  "start": 5,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-7",
+                  "pitch": 64,
+                  "start": 6,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-8",
+                  "pitch": 72,
+                  "start": 7,
+                  "duration": 1,
+                  "velocity": 0.6
+                }
+              ],
+              "chords": [
+                {
+                  "id": "chord-initial-1",
+                  "name": "Cmaj7",
+                  "pitches": [
+                    60,
+                    64,
+                    67,
+                    71
+                  ],
+                  "start": 0,
+                  "duration": 4
+                },
+                {
+                  "id": "chord-initial-2",
+                  "name": "Am7",
+                  "pitches": [
+                    57,
+                    60,
+                    64,
+                    67
+                  ],
+                  "start": 4,
+                  "duration": 4
+                }
+              ],
+              "layers": {
+                "melody": true,
+                "harmony": false,
+                "bass": false
+              },
+              "locks": {
+                "sound": false,
+                "rhythm": false,
+                "harmony": false
+              }
+            },
+            "parentIds": [],
+            "assessment": {
+              "measured": true,
+              "findings": []
+            },
+            "citations": [],
+            "metrics": {
+              "basis": "browser-offline-audio",
+              "durationSeconds": 5.615396825396825,
+              "sampleRate": 44100,
+              "rms": 0.009114851440869811,
+              "peak": 0.04202665016055107,
+              "clippingRatio": 0,
+              "spectralCentroidHz": 446.03694934844594,
+              "highFrequencyEnergyRatio": 9.68116458251771e-7
+            }
+          }
+        ],
+        "mode": "model",
+        "trace": {
+          "requestId": "e150a104-b979-4999-9637-30dd2ef40e13",
+          "durationMs": 178,
+          "events": [
+            {
+              "name": "model_step_1",
+              "status": "success",
+              "durationMs": 6,
+              "detail": "已收到模型响应；工具与最终回复仍需校验。"
+            },
+            {
+              "name": "get_project_context",
+              "status": "success",
+              "durationMs": 0,
+              "detail": "已执行确定性工具；工程未改变。"
+            },
+            {
+              "name": "analyze_music",
+              "status": "success",
+              "durationMs": 0,
+              "detail": "已执行确定性工具；工程未改变。"
+            },
+            {
+              "name": "model_step_2",
+              "status": "success",
+              "durationMs": 4,
+              "detail": "已收到模型响应；工具与最终回复仍需校验。"
+            },
+            {
+              "name": "transform_motif",
+              "status": "success",
+              "durationMs": 3,
+              "detail": "已执行确定性工具；工程未改变。"
+            },
+            {
+              "name": "model_step_3",
+              "status": "success",
+              "durationMs": 3,
+              "detail": "已收到模型响应；工具与最终回复仍需校验。"
+            },
+            {
+              "name": "propose_edit",
+              "status": "success",
+              "durationMs": 1,
+              "detail": "已执行确定性工具；工程未改变。"
+            },
+            {
+              "name": "model_step_4",
+              "status": "success",
+              "durationMs": 3,
+              "detail": "已收到模型响应；工具与最终回复仍需校验。"
+            },
+            {
+              "name": "render_preview",
+              "status": "success",
+              "durationMs": 149,
+              "detail": "已执行确定性工具；工程未改变。"
+            },
+            {
+              "name": "model_step_5",
+              "status": "success",
+              "durationMs": 6,
+              "detail": "已收到模型响应；工具与最终回复仍需校验。"
+            },
+            {
+              "name": "validate_final_reply",
+              "status": "success",
+              "durationMs": 0,
+              "detail": "最终回复校验通过，引用1个本轮候选。"
+            },
+            {
+              "name": "render_preview_final",
+              "status": "success",
+              "durationMs": 0,
+              "detail": "浏览器离线渲染与指标分析完成。"
+            }
+          ],
+          "usage": {
+            "inputTokens": 500,
+            "outputTokens": 150
+          }
+        }
+      },
+      "manualScores": {
+        "requestFit": null,
+        "musicalQuality": null,
+        "inspiration": null
+      },
+      "manualReview": "pending"
+    },
+    {
+      "id": "locked-transpose",
+      "executionMode": "agent",
+      "passed": true,
+      "intentMatched": true,
+      "audioRenderNeeded": true,
+      "actualAudioRendered": true,
+      "followUpPassed": true,
+      "errorRecoveryExercised": null,
+      "reply": {
+        "message": "模拟模型已调用工具并收到真实浏览器指标。请试听比较后决定。",
+        "candidates": [
+          {
+            "title": "节奏锁定时移调",
+            "explanation": "把所有音符升高一个半音，保留已锁定的节奏和力度。",
+            "patch": {
+              "notes": [
+                {
+                  "id": "note-initial-1",
+                  "pitch": 61,
+                  "start": 0,
+                  "duration": 0.65,
+                  "velocity": 0.8
+                },
+                {
+                  "id": "note-initial-2",
+                  "pitch": 65,
+                  "start": 1,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-3",
+                  "pitch": 68,
+                  "start": 2,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-4",
+                  "pitch": 72,
+                  "start": 3,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-5",
+                  "pitch": 70,
+                  "start": 4,
+                  "duration": 0.65,
+                  "velocity": 0.8
+                },
+                {
+                  "id": "note-initial-6",
+                  "pitch": 68,
+                  "start": 5,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-7",
+                  "pitch": 65,
+                  "start": 6,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-8",
+                  "pitch": 63,
+                  "start": 7,
+                  "duration": 1,
+                  "velocity": 0.6
+                }
+              ]
+            },
+            "id": "candidate-34d3b1b0-5f53-4b4c-b970-26ea0cd31610",
+            "baseRevision": 0,
+            "project": {
+              "format": "synthverse-project",
+              "version": 3,
+              "title": "玻璃上的微光",
+              "bars": 2,
+              "revision": 1,
+              "bpm": 104,
+              "sound": {
+                "wave": "triangle",
+                "brightness": 42,
+                "attack": 0.015,
+                "release": 0.65,
+                "width": 7,
+                "glass": 32,
+                "oscillators": [
+                  {
+                    "enabled": true,
+                    "wave": "triangle",
+                    "level": 0.8,
+                    "transpose": 0,
+                    "fine": 0,
+                    "unison": 1,
+                    "detune": 7,
+                    "pan": 0,
+                    "position": 0,
+                    "table": "basic"
+                  },
+                  {
+                    "enabled": false,
+                    "wave": "triangle",
+                    "level": 0.35,
+                    "transpose": 0,
+                    "fine": 0,
+                    "unison": 1,
+                    "detune": 7,
+                    "pan": 0,
+                    "position": 0,
+                    "table": "basic"
+                  },
+                  {
+                    "enabled": false,
+                    "wave": "triangle",
+                    "level": 0.35,
+                    "transpose": 0,
+                    "fine": 0,
+                    "unison": 1,
+                    "detune": 7,
+                    "pan": 0,
+                    "position": 0,
+                    "table": "basic"
+                  }
+                ],
+                "filters": [
+                  {
+                    "enabled": true,
+                    "type": "lowpass",
+                    "cutoff": 15000,
+                    "resonance": 0.6,
+                    "envelope": 0
+                  },
+                  {
+                    "enabled": false,
+                    "type": "lowpass",
+                    "cutoff": 15000,
+                    "resonance": 0.6,
+                    "envelope": 0
+                  }
+                ],
+                "decay": 0.25,
+                "sustain": 0.6,
+                "noise": 0,
+                "sub": 0,
+                "env2": {
+                  "attack": 0.01,
+                  "decay": 0.5,
+                  "sustain": 0,
+                  "release": 0.3
+                },
+                "lfos": [
+                  {
+                    "wave": "sine",
+                    "rate": 2,
+                    "sync": false
+                  },
+                  {
+                    "wave": "triangle",
+                    "rate": 0.5,
+                    "sync": false
+                  }
+                ],
+                "modulations": [],
+                "effects": {
+                  "distortion": 0,
+                  "chorus": 0,
+                  "delay": 0,
+                  "delayTime": 0.25,
+                  "feedback": 0.3,
+                  "reverb": 0,
+                  "reverbTime": 1.2,
+                  "phaser": 0,
+                  "flanger": 0,
+                  "eqLow": 0,
+                  "eqMid": 0,
+                  "eqHigh": 0,
+                  "threshold": -8,
+                  "ratio": 12
+                }
+              },
+              "notes": [
+                {
+                  "id": "note-initial-1",
+                  "pitch": 61,
+                  "start": 0,
+                  "duration": 0.65,
+                  "velocity": 0.8
+                },
+                {
+                  "id": "note-initial-2",
+                  "pitch": 65,
+                  "start": 1,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-3",
+                  "pitch": 68,
+                  "start": 2,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-4",
+                  "pitch": 72,
+                  "start": 3,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-5",
+                  "pitch": 70,
+                  "start": 4,
+                  "duration": 0.65,
+                  "velocity": 0.8
+                },
+                {
+                  "id": "note-initial-6",
+                  "pitch": 68,
+                  "start": 5,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-7",
+                  "pitch": 65,
+                  "start": 6,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-8",
+                  "pitch": 63,
+                  "start": 7,
+                  "duration": 1,
+                  "velocity": 0.6
+                }
+              ],
+              "chords": [
+                {
+                  "id": "chord-initial-1",
+                  "name": "Cmaj7",
+                  "pitches": [
+                    60,
+                    64,
+                    67,
+                    71
+                  ],
+                  "start": 0,
+                  "duration": 4
+                },
+                {
+                  "id": "chord-initial-2",
+                  "name": "Am7",
+                  "pitches": [
+                    57,
+                    60,
+                    64,
+                    67
+                  ],
+                  "start": 4,
+                  "duration": 4
+                }
+              ],
+              "layers": {
+                "melody": true,
+                "harmony": false,
+                "bass": false
+              },
+              "locks": {
+                "sound": false,
+                "rhythm": true,
+                "harmony": false
+              }
+            },
+            "parentIds": [],
+            "assessment": {
+              "measured": true,
+              "findings": []
+            },
+            "citations": [],
+            "metrics": {
+              "basis": "browser-offline-audio",
+              "durationSeconds": 5.615396825396825,
+              "sampleRate": 44100,
+              "rms": 0.009115070496175551,
+              "peak": 0.04380592331290245,
+              "clippingRatio": 0,
+              "spectralCentroidHz": 461.4846292906906,
+              "highFrequencyEnergyRatio": 0.000001017662910108351
+            }
+          }
+        ],
+        "mode": "model",
+        "trace": {
+          "requestId": "16dd1b8b-3865-4748-82fb-90d5cccf16c5",
+          "durationMs": 182,
+          "events": [
+            {
+              "name": "model_step_1",
+              "status": "success",
+              "durationMs": 4,
+              "detail": "已收到模型响应；工具与最终回复仍需校验。"
+            },
+            {
+              "name": "get_project_context",
+              "status": "success",
+              "durationMs": 0,
+              "detail": "已执行确定性工具；工程未改变。"
+            },
+            {
+              "name": "analyze_music",
+              "status": "success",
+              "durationMs": 0,
+              "detail": "已执行确定性工具；工程未改变。"
+            },
+            {
+              "name": "model_step_2",
+              "status": "success",
+              "durationMs": 4,
+              "detail": "已收到模型响应；工具与最终回复仍需校验。"
+            },
+            {
+              "name": "transform_motif",
+              "status": "success",
+              "durationMs": 1,
+              "detail": "已执行确定性工具；工程未改变。"
+            },
+            {
+              "name": "model_step_3",
+              "status": "success",
+              "durationMs": 5,
+              "detail": "已收到模型响应；工具与最终回复仍需校验。"
+            },
+            {
+              "name": "propose_edit",
+              "status": "success",
+              "durationMs": 1,
+              "detail": "已执行确定性工具；工程未改变。"
+            },
+            {
+              "name": "model_step_4",
+              "status": "success",
+              "durationMs": 3,
+              "detail": "已收到模型响应；工具与最终回复仍需校验。"
+            },
+            {
+              "name": "render_preview",
+              "status": "success",
+              "durationMs": 158,
+              "detail": "已执行确定性工具；工程未改变。"
+            },
+            {
+              "name": "model_step_5",
+              "status": "success",
+              "durationMs": 4,
+              "detail": "已收到模型响应；工具与最终回复仍需校验。"
+            },
+            {
+              "name": "validate_final_reply",
+              "status": "success",
+              "durationMs": 0,
+              "detail": "最终回复校验通过，引用1个本轮候选。"
+            },
+            {
+              "name": "render_preview_final",
+              "status": "success",
+              "durationMs": 0,
+              "detail": "浏览器离线渲染与指标分析完成。"
+            }
+          ],
+          "usage": {
+            "inputTokens": 500,
+            "outputTokens": 150
+          }
+        }
+      },
+      "manualScores": {
+        "requestFit": null,
+        "musicalQuality": null,
+        "inspiration": null
+      },
+      "manualReview": "pending"
+    },
+    {
+      "id": "four-chords",
+      "executionMode": "agent",
+      "passed": true,
+      "intentMatched": true,
+      "audioRenderNeeded": true,
+      "actualAudioRendered": true,
+      "followUpPassed": true,
+      "errorRecoveryExercised": null,
+      "reply": {
+        "message": "模拟模型已调用工具并收到真实浏览器指标。请试听比较后决定。",
+        "candidates": [
+          {
+            "title": "四和弦进行",
+            "explanation": "用C、Am、F、G四个和弦覆盖这两小节，每个持续2拍，打开和弦声部。",
+            "patch": {
+              "chords": [
+                {
+                  "id": "chord-ba63cc66-61d1-4f35-a595-d7281101625c",
+                  "name": "C",
+                  "pitches": [
+                    60,
+                    64,
+                    67
+                  ],
+                  "start": 0,
+                  "duration": 2
+                },
+                {
+                  "id": "chord-8d3b3e10-77d1-4127-8080-23e00940c9a5",
+                  "name": "Am",
+                  "pitches": [
+                    57,
+                    60,
+                    64
+                  ],
+                  "start": 2,
+                  "duration": 2
+                },
+                {
+                  "id": "chord-175f707c-4fc6-4ee2-9db0-aeee15a4a008",
+                  "name": "F",
+                  "pitches": [
+                    53,
+                    57,
+                    60
+                  ],
+                  "start": 4,
+                  "duration": 2
+                },
+                {
+                  "id": "chord-02356069-b2a3-40ea-92ed-56d07271351c",
+                  "name": "G",
+                  "pitches": [
+                    55,
+                    59,
+                    62
+                  ],
+                  "start": 6,
+                  "duration": 2
+                }
+              ],
+              "layers": {
+                "harmony": true
+              }
+            },
+            "id": "candidate-270b8863-d4f2-49cc-9999-997179624169",
+            "baseRevision": 0,
+            "project": {
+              "format": "synthverse-project",
+              "version": 3,
+              "title": "玻璃上的微光",
+              "bars": 2,
+              "revision": 1,
+              "bpm": 104,
+              "sound": {
+                "wave": "triangle",
+                "brightness": 42,
+                "attack": 0.015,
+                "release": 0.65,
+                "width": 7,
+                "glass": 32,
+                "oscillators": [
+                  {
+                    "enabled": true,
+                    "wave": "triangle",
+                    "level": 0.8,
+                    "transpose": 0,
+                    "fine": 0,
+                    "unison": 1,
+                    "detune": 7,
+                    "pan": 0,
+                    "position": 0,
+                    "table": "basic"
+                  },
+                  {
+                    "enabled": false,
+                    "wave": "triangle",
+                    "level": 0.35,
+                    "transpose": 0,
+                    "fine": 0,
+                    "unison": 1,
+                    "detune": 7,
+                    "pan": 0,
+                    "position": 0,
+                    "table": "basic"
+                  },
+                  {
+                    "enabled": false,
+                    "wave": "triangle",
+                    "level": 0.35,
+                    "transpose": 0,
+                    "fine": 0,
+                    "unison": 1,
+                    "detune": 7,
+                    "pan": 0,
+                    "position": 0,
+                    "table": "basic"
+                  }
+                ],
+                "filters": [
+                  {
+                    "enabled": true,
+                    "type": "lowpass",
+                    "cutoff": 15000,
+                    "resonance": 0.6,
+                    "envelope": 0
+                  },
+                  {
+                    "enabled": false,
+                    "type": "lowpass",
+                    "cutoff": 15000,
+                    "resonance": 0.6,
+                    "envelope": 0
+                  }
+                ],
+                "decay": 0.25,
+                "sustain": 0.6,
+                "noise": 0,
+                "sub": 0,
+                "env2": {
+                  "attack": 0.01,
+                  "decay": 0.5,
+                  "sustain": 0,
+                  "release": 0.3
+                },
+                "lfos": [
+                  {
+                    "wave": "sine",
+                    "rate": 2,
+                    "sync": false
+                  },
+                  {
+                    "wave": "triangle",
+                    "rate": 0.5,
+                    "sync": false
+                  }
+                ],
+                "modulations": [],
+                "effects": {
+                  "distortion": 0,
+                  "chorus": 0,
+                  "delay": 0,
+                  "delayTime": 0.25,
+                  "feedback": 0.3,
+                  "reverb": 0,
+                  "reverbTime": 1.2,
+                  "phaser": 0,
+                  "flanger": 0,
+                  "eqLow": 0,
+                  "eqMid": 0,
+                  "eqHigh": 0,
+                  "threshold": -8,
+                  "ratio": 12
+                }
+              },
+              "notes": [
+                {
+                  "id": "note-initial-1",
+                  "pitch": 60,
+                  "start": 0,
+                  "duration": 0.65,
+                  "velocity": 0.8
+                },
+                {
+                  "id": "note-initial-2",
+                  "pitch": 64,
+                  "start": 1,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-3",
+                  "pitch": 67,
+                  "start": 2,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-4",
+                  "pitch": 71,
+                  "start": 3,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-5",
+                  "pitch": 69,
+                  "start": 4,
+                  "duration": 0.65,
+                  "velocity": 0.8
+                },
+                {
+                  "id": "note-initial-6",
+                  "pitch": 67,
+                  "start": 5,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-7",
+                  "pitch": 64,
+                  "start": 6,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-8",
+                  "pitch": 62,
+                  "start": 7,
+                  "duration": 1,
+                  "velocity": 0.6
+                }
+              ],
+              "chords": [
+                {
+                  "id": "chord-ba63cc66-61d1-4f35-a595-d7281101625c",
+                  "name": "C",
+                  "pitches": [
+                    60,
+                    64,
+                    67
+                  ],
+                  "start": 0,
+                  "duration": 2
+                },
+                {
+                  "id": "chord-8d3b3e10-77d1-4127-8080-23e00940c9a5",
+                  "name": "Am",
+                  "pitches": [
+                    57,
+                    60,
+                    64
+                  ],
+                  "start": 2,
+                  "duration": 2
+                },
+                {
+                  "id": "chord-175f707c-4fc6-4ee2-9db0-aeee15a4a008",
+                  "name": "F",
+                  "pitches": [
+                    53,
+                    57,
+                    60
+                  ],
+                  "start": 4,
+                  "duration": 2
+                },
+                {
+                  "id": "chord-02356069-b2a3-40ea-92ed-56d07271351c",
+                  "name": "G",
+                  "pitches": [
+                    55,
+                    59,
+                    62
+                  ],
+                  "start": 6,
+                  "duration": 2
+                }
+              ],
+              "layers": {
+                "melody": true,
+                "harmony": true,
+                "bass": false
+              },
+              "locks": {
+                "sound": false,
+                "rhythm": false,
+                "harmony": false
+              }
+            },
+            "parentIds": [],
+            "assessment": {
+              "measured": true,
+              "findings": []
+            },
+            "citations": [],
+            "metrics": {
+              "basis": "browser-offline-audio",
+              "durationSeconds": 5.615396825396825,
+              "sampleRate": 44100,
+              "rms": 0.010220705639380975,
+              "peak": 0.04927598685026169,
+              "clippingRatio": 0,
+              "spectralCentroidHz": 388.65684714409826,
+              "highFrequencyEnergyRatio": 6.460152737871996e-7
+            }
+          }
+        ],
+        "mode": "model",
+        "trace": {
+          "requestId": "a3542265-ba26-4e11-8fbd-839c8710fabf",
+          "durationMs": 314,
+          "events": [
+            {
+              "name": "model_step_1",
+              "status": "success",
+              "durationMs": 4,
+              "detail": "已收到模型响应；工具与最终回复仍需校验。"
+            },
+            {
+              "name": "get_project_context",
+              "status": "success",
+              "durationMs": 0,
+              "detail": "已执行确定性工具；工程未改变。"
+            },
+            {
+              "name": "analyze_music",
+              "status": "success",
+              "durationMs": 0,
+              "detail": "已执行确定性工具；工程未改变。"
+            },
+            {
+              "name": "model_step_2",
+              "status": "success",
+              "durationMs": 5,
+              "detail": "已收到模型响应；工具与最终回复仍需校验。"
+            },
+            {
+              "name": "propose_edit",
+              "status": "success",
+              "durationMs": 5,
+              "detail": "已执行确定性工具；工程未改变。"
+            },
+            {
+              "name": "model_step_3",
+              "status": "success",
+              "durationMs": 3,
+              "detail": "已收到模型响应；工具与最终回复仍需校验。"
+            },
+            {
+              "name": "render_preview",
+              "status": "success",
+              "durationMs": 289,
+              "detail": "已执行确定性工具；工程未改变。"
+            },
+            {
+              "name": "model_step_4",
+              "status": "success",
+              "durationMs": 6,
+              "detail": "已收到模型响应；工具与最终回复仍需校验。"
+            },
+            {
+              "name": "validate_final_reply",
+              "status": "success",
+              "durationMs": 0,
+              "detail": "最终回复校验通过，引用1个本轮候选。"
+            },
+            {
+              "name": "render_preview_final",
+              "status": "success",
+              "durationMs": 0,
+              "detail": "浏览器离线渲染与指标分析完成。"
+            }
+          ],
+          "usage": {
+            "inputTokens": 400,
+            "outputTokens": 120
+          }
+        }
+      },
+      "manualScores": {
+        "requestFit": null,
+        "musicalQuality": null,
+        "inspiration": null
+      },
+      "manualReview": "pending"
+    },
+    {
+      "id": "harmony-gap",
+      "executionMode": "agent",
+      "passed": true,
+      "intentMatched": true,
+      "audioRenderNeeded": true,
+      "actualAudioRendered": true,
+      "followUpPassed": true,
+      "errorRecoveryExercised": null,
+      "reply": {
+        "message": "模拟模型已调用工具并收到真实浏览器指标。请试听比较后决定。",
+        "candidates": [
+          {
+            "title": "给和声留白",
+            "explanation": "将第一个和弦缩短为2拍，空出第3和第4拍，保留后面的和弦。",
+            "patch": {
+              "chords": [
+                {
+                  "id": "chord-initial-1",
+                  "name": "Cmaj7",
+                  "pitches": [
+                    60,
+                    64,
+                    67,
+                    71
+                  ],
+                  "start": 0,
+                  "duration": 2
+                },
+                {
+                  "id": "chord-initial-2",
+                  "name": "Am7",
+                  "pitches": [
+                    57,
+                    60,
+                    64,
+                    67
+                  ],
+                  "start": 4,
+                  "duration": 4
+                }
+              ]
+            },
+            "id": "candidate-bc556739-2509-42ff-a2ea-97f1c0bf6857",
+            "baseRevision": 0,
+            "project": {
+              "format": "synthverse-project",
+              "version": 3,
+              "title": "玻璃上的微光",
+              "bars": 2,
+              "revision": 1,
+              "bpm": 104,
+              "sound": {
+                "wave": "triangle",
+                "brightness": 42,
+                "attack": 0.015,
+                "release": 0.65,
+                "width": 7,
+                "glass": 32,
+                "oscillators": [
+                  {
+                    "enabled": true,
+                    "wave": "triangle",
+                    "level": 0.8,
+                    "transpose": 0,
+                    "fine": 0,
+                    "unison": 1,
+                    "detune": 7,
+                    "pan": 0,
+                    "position": 0,
+                    "table": "basic"
+                  },
+                  {
+                    "enabled": false,
+                    "wave": "triangle",
+                    "level": 0.35,
+                    "transpose": 0,
+                    "fine": 0,
+                    "unison": 1,
+                    "detune": 7,
+                    "pan": 0,
+                    "position": 0,
+                    "table": "basic"
+                  },
+                  {
+                    "enabled": false,
+                    "wave": "triangle",
+                    "level": 0.35,
+                    "transpose": 0,
+                    "fine": 0,
+                    "unison": 1,
+                    "detune": 7,
+                    "pan": 0,
+                    "position": 0,
+                    "table": "basic"
+                  }
+                ],
+                "filters": [
+                  {
+                    "enabled": true,
+                    "type": "lowpass",
+                    "cutoff": 15000,
+                    "resonance": 0.6,
+                    "envelope": 0
+                  },
+                  {
+                    "enabled": false,
+                    "type": "lowpass",
+                    "cutoff": 15000,
+                    "resonance": 0.6,
+                    "envelope": 0
+                  }
+                ],
+                "decay": 0.25,
+                "sustain": 0.6,
+                "noise": 0,
+                "sub": 0,
+                "env2": {
+                  "attack": 0.01,
+                  "decay": 0.5,
+                  "sustain": 0,
+                  "release": 0.3
+                },
+                "lfos": [
+                  {
+                    "wave": "sine",
+                    "rate": 2,
+                    "sync": false
+                  },
+                  {
+                    "wave": "triangle",
+                    "rate": 0.5,
+                    "sync": false
+                  }
+                ],
+                "modulations": [],
+                "effects": {
+                  "distortion": 0,
+                  "chorus": 0,
+                  "delay": 0,
+                  "delayTime": 0.25,
+                  "feedback": 0.3,
+                  "reverb": 0,
+                  "reverbTime": 1.2,
+                  "phaser": 0,
+                  "flanger": 0,
+                  "eqLow": 0,
+                  "eqMid": 0,
+                  "eqHigh": 0,
+                  "threshold": -8,
+                  "ratio": 12
+                }
+              },
+              "notes": [
+                {
+                  "id": "note-initial-1",
+                  "pitch": 60,
+                  "start": 0,
+                  "duration": 0.65,
+                  "velocity": 0.8
+                },
+                {
+                  "id": "note-initial-2",
+                  "pitch": 64,
+                  "start": 1,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-3",
+                  "pitch": 67,
+                  "start": 2,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-4",
+                  "pitch": 71,
+                  "start": 3,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-5",
+                  "pitch": 69,
+                  "start": 4,
+                  "duration": 0.65,
+                  "velocity": 0.8
+                },
+                {
+                  "id": "note-initial-6",
+                  "pitch": 67,
+                  "start": 5,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-7",
+                  "pitch": 64,
+                  "start": 6,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-8",
+                  "pitch": 62,
+                  "start": 7,
+                  "duration": 1,
+                  "velocity": 0.6
+                }
+              ],
+              "chords": [
+                {
+                  "id": "chord-initial-1",
+                  "name": "Cmaj7",
+                  "pitches": [
+                    60,
+                    64,
+                    67,
+                    71
+                  ],
+                  "start": 0,
+                  "duration": 2
+                },
+                {
+                  "id": "chord-initial-2",
+                  "name": "Am7",
+                  "pitches": [
+                    57,
+                    60,
+                    64,
+                    67
+                  ],
+                  "start": 4,
+                  "duration": 4
+                }
+              ],
+              "layers": {
+                "melody": true,
+                "harmony": false,
+                "bass": false
+              },
+              "locks": {
+                "sound": false,
+                "rhythm": false,
+                "harmony": false
+              }
+            },
+            "parentIds": [],
+            "assessment": {
+              "measured": true,
+              "findings": []
+            },
+            "citations": [],
+            "metrics": {
+              "basis": "browser-offline-audio",
+              "durationSeconds": 5.615396825396825,
+              "sampleRate": 44100,
+              "rms": 0.009083678485504482,
+              "peak": 0.04202665016055107,
+              "clippingRatio": 0,
+              "spectralCentroidHz": 428.4656946732849,
+              "highFrequencyEnergyRatio": 8.707982572142428e-7
+            }
+          }
+        ],
+        "mode": "model",
+        "trace": {
+          "requestId": "0f8ba166-86d6-4cb1-a3d0-018357c1b522",
+          "durationMs": 188,
+          "events": [
+            {
+              "name": "model_step_1",
+              "status": "success",
+              "durationMs": 7,
+              "detail": "已收到模型响应；工具与最终回复仍需校验。"
+            },
+            {
+              "name": "get_project_context",
+              "status": "success",
+              "durationMs": 0,
+              "detail": "已执行确定性工具；工程未改变。"
+            },
+            {
+              "name": "analyze_music",
+              "status": "success",
+              "durationMs": 0,
+              "detail": "已执行确定性工具；工程未改变。"
+            },
+            {
+              "name": "model_step_2",
+              "status": "success",
+              "durationMs": 7,
+              "detail": "已收到模型响应；工具与最终回复仍需校验。"
+            },
+            {
+              "name": "edit_chords",
+              "status": "success",
+              "durationMs": 2,
+              "detail": "已执行确定性工具；工程未改变。"
+            },
+            {
+              "name": "model_step_3",
+              "status": "success",
+              "durationMs": 4,
+              "detail": "已收到模型响应；工具与最终回复仍需校验。"
+            },
+            {
+              "name": "propose_edit",
+              "status": "success",
+              "durationMs": 1,
+              "detail": "已执行确定性工具；工程未改变。"
+            },
+            {
+              "name": "model_step_4",
+              "status": "success",
+              "durationMs": 4,
+              "detail": "已收到模型响应；工具与最终回复仍需校验。"
+            },
+            {
+              "name": "render_preview",
+              "status": "success",
+              "durationMs": 159,
+              "detail": "已执行确定性工具；工程未改变。"
+            },
+            {
+              "name": "model_step_5",
+              "status": "success",
+              "durationMs": 3,
+              "detail": "已收到模型响应；工具与最终回复仍需校验。"
+            },
+            {
+              "name": "validate_final_reply",
+              "status": "success",
+              "durationMs": 0,
+              "detail": "最终回复校验通过，引用1个本轮候选。"
+            },
+            {
+              "name": "render_preview_final",
+              "status": "success",
+              "durationMs": 0,
+              "detail": "浏览器离线渲染与指标分析完成。"
+            }
+          ],
+          "usage": {
+            "inputTokens": 500,
+            "outputTokens": 150
+          }
+        }
+      },
+      "manualScores": {
+        "requestFit": null,
+        "musicalQuality": null,
+        "inspiration": null
+      },
+      "manualReview": "pending"
+    },
+    {
+      "id": "advanced-effects",
+      "executionMode": "agent",
+      "passed": true,
+      "intentMatched": true,
+      "audioRenderNeeded": true,
+      "actualAudioRendered": true,
+      "followUpPassed": true,
+      "errorRecoveryExercised": null,
+      "reply": {
+        "message": "模拟模型已调用工具并收到真实浏览器指标。请试听比较后决定。",
+        "candidates": [
+          {
+            "title": "完整效果参数保持",
+            "explanation": "加一点合唱和混响，保持振荡器、旋律和其他效果设置。",
+            "patch": {
+              "sound": {
+                "effects": {
+                  "distortion": 0,
+                  "chorus": 0.2,
+                  "delay": 0,
+                  "delayTime": 0.25,
+                  "feedback": 0.3,
+                  "reverb": 0.2,
+                  "reverbTime": 1.2,
+                  "phaser": 0,
+                  "flanger": 0,
+                  "eqLow": 0,
+                  "eqMid": 0,
+                  "eqHigh": 0,
+                  "threshold": -8,
+                  "ratio": 12
+                }
+              }
+            },
+            "id": "candidate-b3de04bf-18fb-422b-8fbb-83c8fe22c7e3",
+            "baseRevision": 0,
+            "project": {
+              "format": "synthverse-project",
+              "version": 3,
+              "title": "玻璃上的微光",
+              "bars": 2,
+              "revision": 1,
+              "bpm": 104,
+              "sound": {
+                "wave": "triangle",
+                "brightness": 42,
+                "attack": 0.015,
+                "release": 0.65,
+                "width": 7,
+                "glass": 32,
+                "oscillators": [
+                  {
+                    "enabled": true,
+                    "wave": "triangle",
+                    "level": 0.8,
+                    "transpose": 0,
+                    "fine": 0,
+                    "unison": 1,
+                    "detune": 7,
+                    "pan": 0,
+                    "position": 0,
+                    "table": "basic"
+                  },
+                  {
+                    "enabled": false,
+                    "wave": "triangle",
+                    "level": 0.35,
+                    "transpose": 0,
+                    "fine": 0,
+                    "unison": 1,
+                    "detune": 7,
+                    "pan": 0,
+                    "position": 0,
+                    "table": "basic"
+                  },
+                  {
+                    "enabled": false,
+                    "wave": "triangle",
+                    "level": 0.35,
+                    "transpose": 0,
+                    "fine": 0,
+                    "unison": 1,
+                    "detune": 7,
+                    "pan": 0,
+                    "position": 0,
+                    "table": "basic"
+                  }
+                ],
+                "filters": [
+                  {
+                    "enabled": true,
+                    "type": "lowpass",
+                    "cutoff": 15000,
+                    "resonance": 0.6,
+                    "envelope": 0
+                  },
+                  {
+                    "enabled": false,
+                    "type": "lowpass",
+                    "cutoff": 15000,
+                    "resonance": 0.6,
+                    "envelope": 0
+                  }
+                ],
+                "decay": 0.25,
+                "sustain": 0.6,
+                "noise": 0,
+                "sub": 0,
+                "env2": {
+                  "attack": 0.01,
+                  "decay": 0.5,
+                  "sustain": 0,
+                  "release": 0.3
+                },
+                "lfos": [
+                  {
+                    "wave": "sine",
+                    "rate": 2,
+                    "sync": false
+                  },
+                  {
+                    "wave": "triangle",
+                    "rate": 0.5,
+                    "sync": false
+                  }
+                ],
+                "modulations": [],
+                "effects": {
+                  "distortion": 0,
+                  "chorus": 0.2,
+                  "delay": 0,
+                  "delayTime": 0.25,
+                  "feedback": 0.3,
+                  "reverb": 0.2,
+                  "reverbTime": 1.2,
+                  "phaser": 0,
+                  "flanger": 0,
+                  "eqLow": 0,
+                  "eqMid": 0,
+                  "eqHigh": 0,
+                  "threshold": -8,
+                  "ratio": 12
+                }
+              },
+              "notes": [
+                {
+                  "id": "note-initial-1",
+                  "pitch": 60,
+                  "start": 0,
+                  "duration": 0.65,
+                  "velocity": 0.8
+                },
+                {
+                  "id": "note-initial-2",
+                  "pitch": 64,
+                  "start": 1,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-3",
+                  "pitch": 67,
+                  "start": 2,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-4",
+                  "pitch": 71,
+                  "start": 3,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-5",
+                  "pitch": 69,
+                  "start": 4,
+                  "duration": 0.65,
+                  "velocity": 0.8
+                },
+                {
+                  "id": "note-initial-6",
+                  "pitch": 67,
+                  "start": 5,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-7",
+                  "pitch": 64,
+                  "start": 6,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-8",
+                  "pitch": 62,
+                  "start": 7,
+                  "duration": 1,
+                  "velocity": 0.6
+                }
+              ],
+              "chords": [
+                {
+                  "id": "chord-initial-1",
+                  "name": "Cmaj7",
+                  "pitches": [
+                    60,
+                    64,
+                    67,
+                    71
+                  ],
+                  "start": 0,
+                  "duration": 4
+                },
+                {
+                  "id": "chord-initial-2",
+                  "name": "Am7",
+                  "pitches": [
+                    57,
+                    60,
+                    64,
+                    67
+                  ],
+                  "start": 4,
+                  "duration": 4
+                }
+              ],
+              "layers": {
+                "melody": true,
+                "harmony": false,
+                "bass": false
+              },
+              "locks": {
+                "sound": false,
+                "rhythm": false,
+                "harmony": false
+              }
+            },
+            "parentIds": [],
+            "assessment": {
+              "measured": true,
+              "findings": []
+            },
+            "citations": [],
+            "metrics": {
+              "basis": "browser-offline-audio",
+              "durationSeconds": 6.815396825396825,
+              "sampleRate": 44100,
+              "rms": 0.006884911116639872,
+              "peak": 0.03485320881009102,
+              "clippingRatio": 0,
+              "spectralCentroidHz": 477.6342388649162,
+              "highFrequencyEnergyRatio": 0.0000012782852685992862
+            }
+          }
+        ],
+        "mode": "model",
+        "trace": {
+          "requestId": "69ce1b0e-81b8-4a10-80d2-2ab16c2b7e37",
+          "durationMs": 353,
+          "events": [
+            {
+              "name": "model_step_1",
+              "status": "success",
+              "durationMs": 5,
+              "detail": "已收到模型响应；工具与最终回复仍需校验。"
+            },
+            {
+              "name": "get_project_context",
+              "status": "success",
+              "durationMs": 0,
+              "detail": "已执行确定性工具；工程未改变。"
+            },
+            {
+              "name": "analyze_music",
+              "status": "success",
+              "durationMs": 0,
+              "detail": "已执行确定性工具；工程未改变。"
+            },
+            {
+              "name": "model_step_2",
+              "status": "success",
+              "durationMs": 3,
+              "detail": "已收到模型响应；工具与最终回复仍需校验。"
+            },
+            {
+              "name": "propose_edit",
+              "status": "success",
+              "durationMs": 1,
+              "detail": "已执行确定性工具；工程未改变。"
+            },
+            {
+              "name": "model_step_3",
+              "status": "success",
+              "durationMs": 4,
+              "detail": "已收到模型响应；工具与最终回复仍需校验。"
+            },
+            {
+              "name": "render_preview",
+              "status": "success",
+              "durationMs": 335,
+              "detail": "已执行确定性工具；工程未改变。"
+            },
+            {
+              "name": "model_step_4",
+              "status": "success",
+              "durationMs": 3,
+              "detail": "已收到模型响应；工具与最终回复仍需校验。"
+            },
+            {
+              "name": "validate_final_reply",
+              "status": "success",
+              "durationMs": 0,
+              "detail": "最终回复校验通过，引用1个本轮候选。"
+            },
+            {
+              "name": "render_preview_final",
+              "status": "success",
+              "durationMs": 0,
+              "detail": "浏览器离线渲染与指标分析完成。"
+            }
+          ],
+          "usage": {
+            "inputTokens": 400,
+            "outputTokens": 120
+          }
+        }
+      },
+      "manualScores": {
+        "requestFit": null,
+        "musicalQuality": null,
+        "inspiration": null
+      },
+      "manualReview": "pending"
+    },
+    {
+      "id": "explanation-only",
+      "executionMode": "agent",
+      "passed": true,
+      "intentMatched": true,
+      "audioRenderNeeded": false,
+      "actualAudioRendered": false,
+      "followUpPassed": true,
+      "errorRecoveryExercised": null,
+      "reply": {
+        "message": "末音D在Am7上不是和弦构成音，可作为延伸色彩。可以试听落到C带来的变化。这里只解释，不修改工程。",
+        "candidates": [],
+        "mode": "model",
+        "trace": {
+          "requestId": "68ec8a55-28ff-4d26-bff1-f97f8b2b4d4b",
+          "durationMs": 11,
+          "events": [
+            {
+              "name": "model_step_1",
+              "status": "success",
+              "durationMs": 5,
+              "detail": "已收到模型响应；工具与最终回复仍需校验。"
+            },
+            {
+              "name": "get_project_context",
+              "status": "success",
+              "durationMs": 0,
+              "detail": "已执行确定性工具；工程未改变。"
+            },
+            {
+              "name": "analyze_music",
+              "status": "success",
+              "durationMs": 0,
+              "detail": "已执行确定性工具；工程未改变。"
+            },
+            {
+              "name": "model_step_2",
+              "status": "success",
+              "durationMs": 5,
+              "detail": "已收到模型响应；工具与最终回复仍需校验。"
+            },
+            {
+              "name": "validate_final_reply",
+              "status": "success",
+              "durationMs": 0,
+              "detail": "最终回复校验通过，引用0个本轮候选。"
+            }
+          ],
+          "usage": {
+            "inputTokens": 200,
+            "outputTokens": 60
+          }
+        }
+      },
+      "manualScores": {
+        "requestFit": null,
+        "musicalQuality": null,
+        "inspiration": null
+      },
+      "manualReview": "pending"
+    },
+    {
+      "id": "invalid-correction",
+      "executionMode": "agent",
+      "passed": true,
+      "intentMatched": true,
+      "audioRenderNeeded": true,
+      "actualAudioRendered": true,
+      "followUpPassed": true,
+      "errorRecoveryExercised": true,
+      "reply": {
+        "message": "模拟模型已调用工具并收到真实浏览器指标。请试听比较后决定。",
+        "candidates": [
+          {
+            "title": "工具错误后的修正",
+            "explanation": "音色柔和一点，亮度设置到24。无效工具参数必须修正后再返回。",
+            "patch": {
+              "sound": {
+                "brightness": 24
+              }
+            },
+            "id": "candidate-5ef6a97a-a67a-4756-b975-ba6d7874eb30",
+            "baseRevision": 0,
+            "project": {
+              "format": "synthverse-project",
+              "version": 3,
+              "title": "玻璃上的微光",
+              "bars": 2,
+              "revision": 1,
+              "bpm": 104,
+              "sound": {
+                "wave": "triangle",
+                "brightness": 24,
+                "attack": 0.015,
+                "release": 0.65,
+                "width": 7,
+                "glass": 32,
+                "oscillators": [
+                  {
+                    "enabled": true,
+                    "wave": "triangle",
+                    "level": 0.8,
+                    "transpose": 0,
+                    "fine": 0,
+                    "unison": 1,
+                    "detune": 7,
+                    "pan": 0,
+                    "position": 0,
+                    "table": "basic"
+                  },
+                  {
+                    "enabled": false,
+                    "wave": "triangle",
+                    "level": 0.35,
+                    "transpose": 0,
+                    "fine": 0,
+                    "unison": 1,
+                    "detune": 7,
+                    "pan": 0,
+                    "position": 0,
+                    "table": "basic"
+                  },
+                  {
+                    "enabled": false,
+                    "wave": "triangle",
+                    "level": 0.35,
+                    "transpose": 0,
+                    "fine": 0,
+                    "unison": 1,
+                    "detune": 7,
+                    "pan": 0,
+                    "position": 0,
+                    "table": "basic"
+                  }
+                ],
+                "filters": [
+                  {
+                    "enabled": true,
+                    "type": "lowpass",
+                    "cutoff": 15000,
+                    "resonance": 0.6,
+                    "envelope": 0
+                  },
+                  {
+                    "enabled": false,
+                    "type": "lowpass",
+                    "cutoff": 15000,
+                    "resonance": 0.6,
+                    "envelope": 0
+                  }
+                ],
+                "decay": 0.25,
+                "sustain": 0.6,
+                "noise": 0,
+                "sub": 0,
+                "env2": {
+                  "attack": 0.01,
+                  "decay": 0.5,
+                  "sustain": 0,
+                  "release": 0.3
+                },
+                "lfos": [
+                  {
+                    "wave": "sine",
+                    "rate": 2,
+                    "sync": false
+                  },
+                  {
+                    "wave": "triangle",
+                    "rate": 0.5,
+                    "sync": false
+                  }
+                ],
+                "modulations": [],
+                "effects": {
+                  "distortion": 0,
+                  "chorus": 0,
+                  "delay": 0,
+                  "delayTime": 0.25,
+                  "feedback": 0.3,
+                  "reverb": 0,
+                  "reverbTime": 1.2,
+                  "phaser": 0,
+                  "flanger": 0,
+                  "eqLow": 0,
+                  "eqMid": 0,
+                  "eqHigh": 0,
+                  "threshold": -8,
+                  "ratio": 12
+                }
+              },
+              "notes": [
+                {
+                  "id": "note-initial-1",
+                  "pitch": 60,
+                  "start": 0,
+                  "duration": 0.65,
+                  "velocity": 0.8
+                },
+                {
+                  "id": "note-initial-2",
+                  "pitch": 64,
+                  "start": 1,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-3",
+                  "pitch": 67,
+                  "start": 2,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-4",
+                  "pitch": 71,
+                  "start": 3,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-5",
+                  "pitch": 69,
+                  "start": 4,
+                  "duration": 0.65,
+                  "velocity": 0.8
+                },
+                {
+                  "id": "note-initial-6",
+                  "pitch": 67,
+                  "start": 5,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-7",
+                  "pitch": 64,
+                  "start": 6,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-8",
+                  "pitch": 62,
+                  "start": 7,
+                  "duration": 1,
+                  "velocity": 0.6
+                }
+              ],
+              "chords": [
+                {
+                  "id": "chord-initial-1",
+                  "name": "Cmaj7",
+                  "pitches": [
+                    60,
+                    64,
+                    67,
+                    71
+                  ],
+                  "start": 0,
+                  "duration": 4
+                },
+                {
+                  "id": "chord-initial-2",
+                  "name": "Am7",
+                  "pitches": [
+                    57,
+                    60,
+                    64,
+                    67
+                  ],
+                  "start": 4,
+                  "duration": 4
+                }
+              ],
+              "layers": {
+                "melody": true,
+                "harmony": false,
+                "bass": false
+              },
+              "locks": {
+                "sound": false,
+                "rhythm": false,
+                "harmony": false
+              }
+            },
+            "parentIds": [],
+            "assessment": {
+              "measured": true,
+              "findings": []
+            },
+            "citations": [],
+            "metrics": {
+              "basis": "browser-offline-audio",
+              "durationSeconds": 5.615396825396825,
+              "sampleRate": 44100,
+              "rms": 0.009581742915793078,
+              "peak": 0.03874973952770233,
+              "clippingRatio": 0,
+              "spectralCentroidHz": 377.831408273206,
+              "highFrequencyEnergyRatio": 4.666117171420294e-8
+            }
+          }
+        ],
+        "mode": "model",
+        "trace": {
+          "requestId": "673cc9a7-c086-4d03-a987-5fa5fd39e39f",
+          "durationMs": 205,
+          "events": [
+            {
+              "name": "model_step_1",
+              "status": "success",
+              "durationMs": 5,
+              "detail": "已收到模型响应；工具与最终回复仍需校验。"
+            },
+            {
+              "name": "get_project_context",
+              "status": "success",
+              "durationMs": 0,
+              "detail": "已执行确定性工具；工程未改变。"
+            },
+            {
+              "name": "analyze_music",
+              "status": "success",
+              "durationMs": 0,
+              "detail": "已执行确定性工具；工程未改变。"
+            },
+            {
+              "name": "model_step_2",
+              "status": "success",
+              "durationMs": 5,
+              "detail": "已收到模型响应；工具与最终回复仍需校验。"
+            },
+            {
+              "name": "propose_edit",
+              "status": "error",
+              "durationMs": 1,
+              "detail": "工具参数或音乐范围校验失败。"
+            },
+            {
+              "name": "model_step_3",
+              "status": "success",
+              "durationMs": 3,
+              "detail": "已收到模型响应；工具与最终回复仍需校验。"
+            },
+            {
+              "name": "propose_edit",
+              "status": "success",
+              "durationMs": 1,
+              "detail": "已执行确定性工具；工程未改变。"
+            },
+            {
+              "name": "model_step_4",
+              "status": "success",
+              "durationMs": 4,
+              "detail": "已收到模型响应；工具与最终回复仍需校验。"
+            },
+            {
+              "name": "render_preview",
+              "status": "success",
+              "durationMs": 180,
+              "detail": "已执行确定性工具；工程未改变。"
+            },
+            {
+              "name": "model_step_5",
+              "status": "success",
+              "durationMs": 4,
+              "detail": "已收到模型响应；工具与最终回复仍需校验。"
+            },
+            {
+              "name": "validate_final_reply",
+              "status": "success",
+              "durationMs": 0,
+              "detail": "最终回复校验通过，引用1个本轮候选。"
+            },
+            {
+              "name": "render_preview_final",
+              "status": "success",
+              "durationMs": 0,
+              "detail": "浏览器离线渲染与指标分析完成。"
+            }
+          ],
+          "usage": {
+            "inputTokens": 500,
+            "outputTokens": 150
+          }
+        }
+      },
+      "manualScores": {
+        "requestFit": null,
+        "musicalQuality": null,
+        "inspiration": null
+      },
+      "manualReview": "pending"
+    },
+    {
+      "id": "branch-combination",
+      "executionMode": "agent",
+      "passed": true,
+      "intentMatched": true,
+      "audioRenderNeeded": true,
+      "actualAudioRendered": true,
+      "followUpPassed": true,
+      "errorRecoveryExercised": null,
+      "reply": {
+        "message": "模拟模型已调用工具并收到真实浏览器指标。请试听比较后决定。",
+        "candidates": [
+          {
+            "title": "不同候选的分支组合",
+            "explanation": "组合我指定的第一个参考的音色和第二个参考的旋律，保留当前和弦。",
+            "patch": {
+              "sound": {
+                "wave": "triangle",
+                "brightness": 24,
+                "attack": 0.015,
+                "release": 0.65,
+                "width": 7,
+                "glass": 32,
+                "oscillators": [
+                  {
+                    "enabled": true,
+                    "wave": "triangle",
+                    "level": 0.8,
+                    "transpose": 0,
+                    "fine": 0,
+                    "unison": 1,
+                    "detune": 7,
+                    "pan": 0,
+                    "position": 0,
+                    "table": "basic"
+                  },
+                  {
+                    "enabled": false,
+                    "wave": "triangle",
+                    "level": 0.35,
+                    "transpose": 0,
+                    "fine": 0,
+                    "unison": 1,
+                    "detune": 7,
+                    "pan": 0,
+                    "position": 0,
+                    "table": "basic"
+                  },
+                  {
+                    "enabled": false,
+                    "wave": "triangle",
+                    "level": 0.35,
+                    "transpose": 0,
+                    "fine": 0,
+                    "unison": 1,
+                    "detune": 7,
+                    "pan": 0,
+                    "position": 0,
+                    "table": "basic"
+                  }
+                ],
+                "filters": [
+                  {
+                    "enabled": true,
+                    "type": "lowpass",
+                    "cutoff": 15000,
+                    "resonance": 0.6,
+                    "envelope": 0
+                  },
+                  {
+                    "enabled": false,
+                    "type": "lowpass",
+                    "cutoff": 15000,
+                    "resonance": 0.6,
+                    "envelope": 0
+                  }
+                ],
+                "decay": 0.25,
+                "sustain": 0.6,
+                "noise": 0,
+                "sub": 0,
+                "env2": {
+                  "attack": 0.01,
+                  "decay": 0.5,
+                  "sustain": 0,
+                  "release": 0.3
+                },
+                "lfos": [
+                  {
+                    "wave": "sine",
+                    "rate": 2,
+                    "sync": false
+                  },
+                  {
+                    "wave": "triangle",
+                    "rate": 0.5,
+                    "sync": false
+                  }
+                ],
+                "modulations": [],
+                "effects": {
+                  "distortion": 0,
+                  "chorus": 0,
+                  "delay": 0,
+                  "delayTime": 0.25,
+                  "feedback": 0.3,
+                  "reverb": 0,
+                  "reverbTime": 1.2,
+                  "phaser": 0,
+                  "flanger": 0,
+                  "eqLow": 0,
+                  "eqMid": 0,
+                  "eqHigh": 0,
+                  "threshold": -8,
+                  "ratio": 12
+                }
+              },
+              "notes": [
+                {
+                  "id": "note-initial-1",
+                  "pitch": 60,
+                  "start": 0,
+                  "duration": 0.65,
+                  "velocity": 0.8
+                },
+                {
+                  "id": "note-initial-2",
+                  "pitch": 64,
+                  "start": 1,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-3",
+                  "pitch": 67,
+                  "start": 2,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-4",
+                  "pitch": 71,
+                  "start": 3,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-5",
+                  "pitch": 69,
+                  "start": 4,
+                  "duration": 0.65,
+                  "velocity": 0.8
+                },
+                {
+                  "id": "note-initial-6",
+                  "pitch": 67,
+                  "start": 5,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-7",
+                  "pitch": 64,
+                  "start": 6,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-8",
+                  "pitch": 72,
+                  "start": 7,
+                  "duration": 1,
+                  "velocity": 0.6
+                }
+              ]
+            },
+            "id": "candidate-87941f2c-521b-48e5-ac75-f4c01dd22780",
+            "baseRevision": 0,
+            "project": {
+              "format": "synthverse-project",
+              "version": 3,
+              "title": "玻璃上的微光",
+              "bars": 2,
+              "revision": 1,
+              "bpm": 104,
+              "sound": {
+                "wave": "triangle",
+                "brightness": 24,
+                "attack": 0.015,
+                "release": 0.65,
+                "width": 7,
+                "glass": 32,
+                "oscillators": [
+                  {
+                    "enabled": true,
+                    "wave": "triangle",
+                    "level": 0.8,
+                    "transpose": 0,
+                    "fine": 0,
+                    "unison": 1,
+                    "detune": 7,
+                    "pan": 0,
+                    "position": 0,
+                    "table": "basic"
+                  },
+                  {
+                    "enabled": false,
+                    "wave": "triangle",
+                    "level": 0.35,
+                    "transpose": 0,
+                    "fine": 0,
+                    "unison": 1,
+                    "detune": 7,
+                    "pan": 0,
+                    "position": 0,
+                    "table": "basic"
+                  },
+                  {
+                    "enabled": false,
+                    "wave": "triangle",
+                    "level": 0.35,
+                    "transpose": 0,
+                    "fine": 0,
+                    "unison": 1,
+                    "detune": 7,
+                    "pan": 0,
+                    "position": 0,
+                    "table": "basic"
+                  }
+                ],
+                "filters": [
+                  {
+                    "enabled": true,
+                    "type": "lowpass",
+                    "cutoff": 15000,
+                    "resonance": 0.6,
+                    "envelope": 0
+                  },
+                  {
+                    "enabled": false,
+                    "type": "lowpass",
+                    "cutoff": 15000,
+                    "resonance": 0.6,
+                    "envelope": 0
+                  }
+                ],
+                "decay": 0.25,
+                "sustain": 0.6,
+                "noise": 0,
+                "sub": 0,
+                "env2": {
+                  "attack": 0.01,
+                  "decay": 0.5,
+                  "sustain": 0,
+                  "release": 0.3
+                },
+                "lfos": [
+                  {
+                    "wave": "sine",
+                    "rate": 2,
+                    "sync": false
+                  },
+                  {
+                    "wave": "triangle",
+                    "rate": 0.5,
+                    "sync": false
+                  }
+                ],
+                "modulations": [],
+                "effects": {
+                  "distortion": 0,
+                  "chorus": 0,
+                  "delay": 0,
+                  "delayTime": 0.25,
+                  "feedback": 0.3,
+                  "reverb": 0,
+                  "reverbTime": 1.2,
+                  "phaser": 0,
+                  "flanger": 0,
+                  "eqLow": 0,
+                  "eqMid": 0,
+                  "eqHigh": 0,
+                  "threshold": -8,
+                  "ratio": 12
+                }
+              },
+              "notes": [
+                {
+                  "id": "note-initial-1",
+                  "pitch": 60,
+                  "start": 0,
+                  "duration": 0.65,
+                  "velocity": 0.8
+                },
+                {
+                  "id": "note-initial-2",
+                  "pitch": 64,
+                  "start": 1,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-3",
+                  "pitch": 67,
+                  "start": 2,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-4",
+                  "pitch": 71,
+                  "start": 3,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-5",
+                  "pitch": 69,
+                  "start": 4,
+                  "duration": 0.65,
+                  "velocity": 0.8
+                },
+                {
+                  "id": "note-initial-6",
+                  "pitch": 67,
+                  "start": 5,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-7",
+                  "pitch": 64,
+                  "start": 6,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-8",
+                  "pitch": 72,
+                  "start": 7,
+                  "duration": 1,
+                  "velocity": 0.6
+                }
+              ],
+              "chords": [
+                {
+                  "id": "chord-initial-1",
+                  "name": "Cmaj7",
+                  "pitches": [
+                    60,
+                    64,
+                    67,
+                    71
+                  ],
+                  "start": 0,
+                  "duration": 4
+                },
+                {
+                  "id": "chord-initial-2",
+                  "name": "Am7",
+                  "pitches": [
+                    57,
+                    60,
+                    64,
+                    67
+                  ],
+                  "start": 4,
+                  "duration": 4
+                }
+              ],
+              "layers": {
+                "melody": true,
+                "harmony": false,
+                "bass": false
+              },
+              "locks": {
+                "sound": false,
+                "rhythm": false,
+                "harmony": false
+              }
+            },
+            "parentIds": [
+              "candidate-1ceb0d9b-8177-404d-8822-3c5dbe5fe0d4",
+              "candidate-02a3f36e-6c63-4b83-bca8-fbcf55f48102"
+            ],
+            "assessment": {
+              "measured": true,
+              "findings": []
+            },
+            "metrics": {
+              "basis": "browser-offline-audio",
+              "durationSeconds": 5.615396825396825,
+              "sampleRate": 44100,
+              "rms": 0.009689209630163644,
+              "peak": 0.03874973952770233,
+              "clippingRatio": 0,
+              "spectralCentroidHz": 401.1927756403008,
+              "highFrequencyEnergyRatio": 5.086179099255051e-8
+            }
+          }
+        ],
+        "mode": "model",
+        "trace": {
+          "requestId": "42690755-7b14-4623-9fed-cfed2c45d842",
+          "durationMs": 216,
+          "events": [
+            {
+              "name": "model_step_1",
+              "status": "success",
+              "durationMs": 3,
+              "detail": "已收到模型响应；工具与最终回复仍需校验。"
+            },
+            {
+              "name": "get_project_context",
+              "status": "success",
+              "durationMs": 0,
+              "detail": "已执行确定性工具；工程未改变。"
+            },
+            {
+              "name": "analyze_music",
+              "status": "success",
+              "durationMs": 0,
+              "detail": "已执行确定性工具；工程未改变。"
+            },
+            {
+              "name": "model_step_2",
+              "status": "success",
+              "durationMs": 4,
+              "detail": "已收到模型响应；工具与最终回复仍需校验。"
+            },
+            {
+              "name": "compose_candidates",
+              "status": "success",
+              "durationMs": 1,
+              "detail": "已执行确定性工具；工程未改变。"
+            },
+            {
+              "name": "model_step_3",
+              "status": "success",
+              "durationMs": 5,
+              "detail": "已收到模型响应；工具与最终回复仍需校验。"
+            },
+            {
+              "name": "render_preview",
+              "status": "success",
+              "durationMs": 197,
+              "detail": "已执行确定性工具；工程未改变。"
+            },
+            {
+              "name": "model_step_4",
+              "status": "success",
+              "durationMs": 5,
+              "detail": "已收到模型响应；工具与最终回复仍需校验。"
+            },
+            {
+              "name": "validate_final_reply",
+              "status": "success",
+              "durationMs": 0,
+              "detail": "最终回复校验通过，引用1个本轮候选。"
+            },
+            {
+              "name": "render_preview_final",
+              "status": "success",
+              "durationMs": 0,
+              "detail": "浏览器离线渲染与指标分析完成。"
+            }
+          ],
+          "usage": {
+            "inputTokens": 400,
+            "outputTokens": 120
+          }
+        }
+      },
+      "manualScores": {
+        "requestFit": null,
+        "musicalQuality": null,
+        "inspiration": null
+      },
+      "manualReview": "pending"
+    },
+    {
+      "id": "delete-selected",
+      "executionMode": "agent",
+      "passed": true,
+      "intentMatched": true,
+      "audioRenderNeeded": true,
+      "actualAudioRendered": true,
+      "followUpPassed": true,
+      "errorRecoveryExercised": null,
+      "reply": {
+        "message": "模拟模型已调用工具并收到真实浏览器指标。请试听比较后决定。",
+        "candidates": [
+          {
+            "title": "删除局部音符",
+            "explanation": "只删除选中的最后一个音，其他音符不能改变。",
+            "patch": {
+              "notes": [
+                {
+                  "id": "note-initial-1",
+                  "pitch": 60,
+                  "start": 0,
+                  "duration": 0.65,
+                  "velocity": 0.8
+                },
+                {
+                  "id": "note-initial-2",
+                  "pitch": 64,
+                  "start": 1,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-3",
+                  "pitch": 67,
+                  "start": 2,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-4",
+                  "pitch": 71,
+                  "start": 3,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-5",
+                  "pitch": 69,
+                  "start": 4,
+                  "duration": 0.65,
+                  "velocity": 0.8
+                },
+                {
+                  "id": "note-initial-6",
+                  "pitch": 67,
+                  "start": 5,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-7",
+                  "pitch": 64,
+                  "start": 6,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                }
+              ]
+            },
+            "id": "candidate-9bb3d71e-e1b6-4ed2-a0b6-910b328f8197",
+            "baseRevision": 0,
+            "project": {
+              "format": "synthverse-project",
+              "version": 3,
+              "title": "玻璃上的微光",
+              "bars": 2,
+              "revision": 1,
+              "bpm": 104,
+              "sound": {
+                "wave": "triangle",
+                "brightness": 42,
+                "attack": 0.015,
+                "release": 0.65,
+                "width": 7,
+                "glass": 32,
+                "oscillators": [
+                  {
+                    "enabled": true,
+                    "wave": "triangle",
+                    "level": 0.8,
+                    "transpose": 0,
+                    "fine": 0,
+                    "unison": 1,
+                    "detune": 7,
+                    "pan": 0,
+                    "position": 0,
+                    "table": "basic"
+                  },
+                  {
+                    "enabled": false,
+                    "wave": "triangle",
+                    "level": 0.35,
+                    "transpose": 0,
+                    "fine": 0,
+                    "unison": 1,
+                    "detune": 7,
+                    "pan": 0,
+                    "position": 0,
+                    "table": "basic"
+                  },
+                  {
+                    "enabled": false,
+                    "wave": "triangle",
+                    "level": 0.35,
+                    "transpose": 0,
+                    "fine": 0,
+                    "unison": 1,
+                    "detune": 7,
+                    "pan": 0,
+                    "position": 0,
+                    "table": "basic"
+                  }
+                ],
+                "filters": [
+                  {
+                    "enabled": true,
+                    "type": "lowpass",
+                    "cutoff": 15000,
+                    "resonance": 0.6,
+                    "envelope": 0
+                  },
+                  {
+                    "enabled": false,
+                    "type": "lowpass",
+                    "cutoff": 15000,
+                    "resonance": 0.6,
+                    "envelope": 0
+                  }
+                ],
+                "decay": 0.25,
+                "sustain": 0.6,
+                "noise": 0,
+                "sub": 0,
+                "env2": {
+                  "attack": 0.01,
+                  "decay": 0.5,
+                  "sustain": 0,
+                  "release": 0.3
+                },
+                "lfos": [
+                  {
+                    "wave": "sine",
+                    "rate": 2,
+                    "sync": false
+                  },
+                  {
+                    "wave": "triangle",
+                    "rate": 0.5,
+                    "sync": false
+                  }
+                ],
+                "modulations": [],
+                "effects": {
+                  "distortion": 0,
+                  "chorus": 0,
+                  "delay": 0,
+                  "delayTime": 0.25,
+                  "feedback": 0.3,
+                  "reverb": 0,
+                  "reverbTime": 1.2,
+                  "phaser": 0,
+                  "flanger": 0,
+                  "eqLow": 0,
+                  "eqMid": 0,
+                  "eqHigh": 0,
+                  "threshold": -8,
+                  "ratio": 12
+                }
+              },
+              "notes": [
+                {
+                  "id": "note-initial-1",
+                  "pitch": 60,
+                  "start": 0,
+                  "duration": 0.65,
+                  "velocity": 0.8
+                },
+                {
+                  "id": "note-initial-2",
+                  "pitch": 64,
+                  "start": 1,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-3",
+                  "pitch": 67,
+                  "start": 2,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-4",
+                  "pitch": 71,
+                  "start": 3,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-5",
+                  "pitch": 69,
+                  "start": 4,
+                  "duration": 0.65,
+                  "velocity": 0.8
+                },
+                {
+                  "id": "note-initial-6",
+                  "pitch": 67,
+                  "start": 5,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-7",
+                  "pitch": 64,
+                  "start": 6,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                }
+              ],
+              "chords": [
+                {
+                  "id": "chord-initial-1",
+                  "name": "Cmaj7",
+                  "pitches": [
+                    60,
+                    64,
+                    67,
+                    71
+                  ],
+                  "start": 0,
+                  "duration": 4
+                },
+                {
+                  "id": "chord-initial-2",
+                  "name": "Am7",
+                  "pitches": [
+                    57,
+                    60,
+                    64,
+                    67
+                  ],
+                  "start": 4,
+                  "duration": 4
+                }
+              ],
+              "layers": {
+                "melody": true,
+                "harmony": false,
+                "bass": false
+              },
+              "locks": {
+                "sound": false,
+                "rhythm": false,
+                "harmony": false
+              }
+            },
+            "parentIds": [],
+            "assessment": {
+              "measured": true,
+              "findings": []
+            },
+            "citations": [],
+            "metrics": {
+              "basis": "browser-offline-audio",
+              "durationSeconds": 5.615396825396825,
+              "sampleRate": 44100,
+              "rms": 0.00846395915833759,
+              "peak": 0.04202665016055107,
+              "clippingRatio": 0,
+              "spectralCentroidHz": 429.00291370941557,
+              "highFrequencyEnergyRatio": 8.822980753806283e-7
+            }
+          }
+        ],
+        "mode": "model",
+        "trace": {
+          "requestId": "8a14cad6-261d-4444-b287-52dd6085ccfb",
+          "durationMs": 174,
+          "events": [
+            {
+              "name": "model_step_1",
+              "status": "success",
+              "durationMs": 4,
+              "detail": "已收到模型响应；工具与最终回复仍需校验。"
+            },
+            {
+              "name": "get_project_context",
+              "status": "success",
+              "durationMs": 0,
+              "detail": "已执行确定性工具；工程未改变。"
+            },
+            {
+              "name": "analyze_music",
+              "status": "success",
+              "durationMs": 0,
+              "detail": "已执行确定性工具；工程未改变。"
+            },
+            {
+              "name": "model_step_2",
+              "status": "success",
+              "durationMs": 6,
+              "detail": "已收到模型响应；工具与最终回复仍需校验。"
+            },
+            {
+              "name": "propose_edit",
+              "status": "success",
+              "durationMs": 1,
+              "detail": "已执行确定性工具；工程未改变。"
+            },
+            {
+              "name": "model_step_3",
+              "status": "success",
+              "durationMs": 3,
+              "detail": "已收到模型响应；工具与最终回复仍需校验。"
+            },
+            {
+              "name": "render_preview",
+              "status": "success",
+              "durationMs": 156,
+              "detail": "已执行确定性工具；工程未改变。"
+            },
+            {
+              "name": "model_step_4",
+              "status": "success",
+              "durationMs": 3,
+              "detail": "已收到模型响应；工具与最终回复仍需校验。"
+            },
+            {
+              "name": "validate_final_reply",
+              "status": "success",
+              "durationMs": 0,
+              "detail": "最终回复校验通过，引用1个本轮候选。"
+            },
+            {
+              "name": "render_preview_final",
+              "status": "success",
+              "durationMs": 0,
+              "detail": "浏览器离线渲染与指标分析完成。"
+            }
+          ],
+          "usage": {
+            "inputTokens": 400,
+            "outputTokens": 120
+          }
+        }
+      },
+      "manualScores": {
+        "requestFit": null,
+        "musicalQuality": null,
+        "inspiration": null
+      },
+      "manualReview": "pending"
+    },
+    {
+      "id": "boundary-add",
+      "executionMode": "agent",
+      "passed": true,
+      "intentMatched": true,
+      "audioRenderNeeded": true,
+      "actualAudioRendered": true,
+      "followUpPassed": true,
+      "errorRecoveryExercised": null,
+      "reply": {
+        "message": "模拟模型已调用工具并收到真实浏览器指标。请试听比较后决定。",
+        "candidates": [
+          {
+            "title": "片段末端添加短音",
+            "explanation": "在第7.5拍添加一个C5，持续0.5拍，力度0.6，不超出两小节。",
+            "patch": {
+              "notes": [
+                {
+                  "id": "note-initial-1",
+                  "pitch": 60,
+                  "start": 0,
+                  "duration": 0.65,
+                  "velocity": 0.8
+                },
+                {
+                  "id": "note-initial-2",
+                  "pitch": 64,
+                  "start": 1,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-3",
+                  "pitch": 67,
+                  "start": 2,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-4",
+                  "pitch": 71,
+                  "start": 3,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-5",
+                  "pitch": 69,
+                  "start": 4,
+                  "duration": 0.65,
+                  "velocity": 0.8
+                },
+                {
+                  "id": "note-initial-6",
+                  "pitch": 67,
+                  "start": 5,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-7",
+                  "pitch": 64,
+                  "start": 6,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-8",
+                  "pitch": 62,
+                  "start": 7,
+                  "duration": 1,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-73510a01-0102-4a6d-9c8b-4340bb83224c",
+                  "pitch": 72,
+                  "start": 7.5,
+                  "duration": 0.5,
+                  "velocity": 0.6
+                }
+              ]
+            },
+            "id": "candidate-a1877222-d106-4841-8c26-ad3dc66d6a26",
+            "baseRevision": 0,
+            "project": {
+              "format": "synthverse-project",
+              "version": 3,
+              "title": "玻璃上的微光",
+              "bars": 2,
+              "revision": 1,
+              "bpm": 104,
+              "sound": {
+                "wave": "triangle",
+                "brightness": 42,
+                "attack": 0.015,
+                "release": 0.65,
+                "width": 7,
+                "glass": 32,
+                "oscillators": [
+                  {
+                    "enabled": true,
+                    "wave": "triangle",
+                    "level": 0.8,
+                    "transpose": 0,
+                    "fine": 0,
+                    "unison": 1,
+                    "detune": 7,
+                    "pan": 0,
+                    "position": 0,
+                    "table": "basic"
+                  },
+                  {
+                    "enabled": false,
+                    "wave": "triangle",
+                    "level": 0.35,
+                    "transpose": 0,
+                    "fine": 0,
+                    "unison": 1,
+                    "detune": 7,
+                    "pan": 0,
+                    "position": 0,
+                    "table": "basic"
+                  },
+                  {
+                    "enabled": false,
+                    "wave": "triangle",
+                    "level": 0.35,
+                    "transpose": 0,
+                    "fine": 0,
+                    "unison": 1,
+                    "detune": 7,
+                    "pan": 0,
+                    "position": 0,
+                    "table": "basic"
+                  }
+                ],
+                "filters": [
+                  {
+                    "enabled": true,
+                    "type": "lowpass",
+                    "cutoff": 15000,
+                    "resonance": 0.6,
+                    "envelope": 0
+                  },
+                  {
+                    "enabled": false,
+                    "type": "lowpass",
+                    "cutoff": 15000,
+                    "resonance": 0.6,
+                    "envelope": 0
+                  }
+                ],
+                "decay": 0.25,
+                "sustain": 0.6,
+                "noise": 0,
+                "sub": 0,
+                "env2": {
+                  "attack": 0.01,
+                  "decay": 0.5,
+                  "sustain": 0,
+                  "release": 0.3
+                },
+                "lfos": [
+                  {
+                    "wave": "sine",
+                    "rate": 2,
+                    "sync": false
+                  },
+                  {
+                    "wave": "triangle",
+                    "rate": 0.5,
+                    "sync": false
+                  }
+                ],
+                "modulations": [],
+                "effects": {
+                  "distortion": 0,
+                  "chorus": 0,
+                  "delay": 0,
+                  "delayTime": 0.25,
+                  "feedback": 0.3,
+                  "reverb": 0,
+                  "reverbTime": 1.2,
+                  "phaser": 0,
+                  "flanger": 0,
+                  "eqLow": 0,
+                  "eqMid": 0,
+                  "eqHigh": 0,
+                  "threshold": -8,
+                  "ratio": 12
+                }
+              },
+              "notes": [
+                {
+                  "id": "note-initial-1",
+                  "pitch": 60,
+                  "start": 0,
+                  "duration": 0.65,
+                  "velocity": 0.8
+                },
+                {
+                  "id": "note-initial-2",
+                  "pitch": 64,
+                  "start": 1,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-3",
+                  "pitch": 67,
+                  "start": 2,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-4",
+                  "pitch": 71,
+                  "start": 3,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-5",
+                  "pitch": 69,
+                  "start": 4,
+                  "duration": 0.65,
+                  "velocity": 0.8
+                },
+                {
+                  "id": "note-initial-6",
+                  "pitch": 67,
+                  "start": 5,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-7",
+                  "pitch": 64,
+                  "start": 6,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-8",
+                  "pitch": 62,
+                  "start": 7,
+                  "duration": 1,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-73510a01-0102-4a6d-9c8b-4340bb83224c",
+                  "pitch": 72,
+                  "start": 7.5,
+                  "duration": 0.5,
+                  "velocity": 0.6
+                }
+              ],
+              "chords": [
+                {
+                  "id": "chord-initial-1",
+                  "name": "Cmaj7",
+                  "pitches": [
+                    60,
+                    64,
+                    67,
+                    71
+                  ],
+                  "start": 0,
+                  "duration": 4
+                },
+                {
+                  "id": "chord-initial-2",
+                  "name": "Am7",
+                  "pitches": [
+                    57,
+                    60,
+                    64,
+                    67
+                  ],
+                  "start": 4,
+                  "duration": 4
+                }
+              ],
+              "layers": {
+                "melody": true,
+                "harmony": false,
+                "bass": false
+              },
+              "locks": {
+                "sound": false,
+                "rhythm": false,
+                "harmony": false
+              }
+            },
+            "parentIds": [],
+            "assessment": {
+              "measured": true,
+              "findings": []
+            },
+            "citations": [],
+            "metrics": {
+              "basis": "browser-offline-audio",
+              "durationSeconds": 5.615396825396825,
+              "sampleRate": 44100,
+              "rms": 0.009516180714299915,
+              "peak": 0.04202665016055107,
+              "clippingRatio": 0,
+              "spectralCentroidHz": 448.61704027719884,
+              "highFrequencyEnergyRatio": 9.934144960725443e-7
+            }
+          }
+        ],
+        "mode": "model",
+        "trace": {
+          "requestId": "bde11d1f-7c6f-440e-baba-71e437bcd507",
+          "durationMs": 247,
+          "events": [
+            {
+              "name": "model_step_1",
+              "status": "success",
+              "durationMs": 5,
+              "detail": "已收到模型响应；工具与最终回复仍需校验。"
+            },
+            {
+              "name": "get_project_context",
+              "status": "success",
+              "durationMs": 0,
+              "detail": "已执行确定性工具；工程未改变。"
+            },
+            {
+              "name": "analyze_music",
+              "status": "success",
+              "durationMs": 0,
+              "detail": "已执行确定性工具；工程未改变。"
+            },
+            {
+              "name": "model_step_2",
+              "status": "success",
+              "durationMs": 4,
+              "detail": "已收到模型响应；工具与最终回复仍需校验。"
+            },
+            {
+              "name": "propose_edit",
+              "status": "success",
+              "durationMs": 2,
+              "detail": "已执行确定性工具；工程未改变。"
+            },
+            {
+              "name": "model_step_3",
+              "status": "success",
+              "durationMs": 2,
+              "detail": "已收到模型响应；工具与最终回复仍需校验。"
+            },
+            {
+              "name": "render_preview",
+              "status": "success",
+              "durationMs": 229,
+              "detail": "已执行确定性工具；工程未改变。"
+            },
+            {
+              "name": "model_step_4",
+              "status": "success",
+              "durationMs": 4,
+              "detail": "已收到模型响应；工具与最终回复仍需校验。"
+            },
+            {
+              "name": "validate_final_reply",
+              "status": "success",
+              "durationMs": 0,
+              "detail": "最终回复校验通过，引用1个本轮候选。"
+            },
+            {
+              "name": "render_preview_final",
+              "status": "success",
+              "durationMs": 0,
+              "detail": "浏览器离线渲染与指标分析完成。"
+            }
+          ],
+          "usage": {
+            "inputTokens": 400,
+            "outputTokens": 120
+          }
+        }
+      },
+      "manualScores": {
+        "requestFit": null,
+        "musicalQuality": null,
+        "inspiration": null
+      },
+      "manualReview": "pending"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.env
+.env.*
+!.env.example
+test-results/
+playwright-report/
+*.log
+.venv/
+.artifacts/
+
+desktop-dist/
+release/
+SynthVerse-data/

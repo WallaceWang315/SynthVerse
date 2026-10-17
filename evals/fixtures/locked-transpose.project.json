@@ -1,0 +1,203 @@
+{
+  "format": "synthverse-project",
+  "version": 3,
+  "bars": 2,
+  "title": "玻璃上的微光",
+  "revision": 0,
+  "bpm": 104,
+  "sound": {
+    "wave": "triangle",
+    "brightness": 42,
+    "attack": 0.015,
+    "release": 0.65,
+    "width": 7,
+    "glass": 32,
+    "oscillators": [
+      {
+        "enabled": true,
+        "wave": "triangle",
+        "level": 0.8,
+        "transpose": 0,
+        "fine": 0,
+        "unison": 1,
+        "detune": 7,
+        "pan": 0,
+        "position": 0,
+        "table": "basic"
+      },
+      {
+        "enabled": false,
+        "wave": "triangle",
+        "level": 0.35,
+        "transpose": 0,
+        "fine": 0,
+        "unison": 1,
+        "detune": 7,
+        "pan": 0,
+        "position": 0,
+        "table": "basic"
+      },
+      {
+        "enabled": false,
+        "wave": "triangle",
+        "level": 0.35,
+        "transpose": 0,
+        "fine": 0,
+        "unison": 1,
+        "detune": 7,
+        "pan": 0,
+        "position": 0,
+        "table": "basic"
+      }
+    ],
+    "filters": [
+      {
+        "enabled": true,
+        "type": "lowpass",
+        "cutoff": 15000,
+        "resonance": 0.6,
+        "envelope": 0
+      },
+      {
+        "enabled": false,
+        "type": "lowpass",
+        "cutoff": 15000,
+        "resonance": 0.6,
+        "envelope": 0
+      }
+    ],
+    "decay": 0.25,
+    "sustain": 0.6,
+    "noise": 0,
+    "sub": 0,
+    "env2": {
+      "attack": 0.01,
+      "decay": 0.5,
+      "sustain": 0,
+      "release": 0.3
+    },
+    "lfos": [
+      {
+        "wave": "sine",
+        "rate": 2,
+        "sync": false
+      },
+      {
+        "wave": "triangle",
+        "rate": 0.5,
+        "sync": false
+      }
+    ],
+    "modulations": [],
+    "effects": {
+      "distortion": 0,
+      "chorus": 0,
+      "delay": 0,
+      "delayTime": 0.25,
+      "feedback": 0.3,
+      "reverb": 0,
+      "reverbTime": 1.2,
+      "phaser": 0,
+      "flanger": 0,
+      "eqLow": 0,
+      "eqMid": 0,
+      "eqHigh": 0,
+      "threshold": -8,
+      "ratio": 12
+    }
+  },
+  "notes": [
+    {
+      "id": "note-initial-1",
+      "pitch": 60,
+      "start": 0,
+      "duration": 0.65,
+      "velocity": 0.8
+    },
+    {
+      "id": "note-initial-2",
+      "pitch": 64,
+      "start": 1,
+      "duration": 0.65,
+      "velocity": 0.6
+    },
+    {
+      "id": "note-initial-3",
+      "pitch": 67,
+      "start": 2,
+      "duration": 0.65,
+      "velocity": 0.6
+    },
+    {
+      "id": "note-initial-4",
+      "pitch": 71,
+      "start": 3,
+      "duration": 0.65,
+      "velocity": 0.6
+    },
+    {
+      "id": "note-initial-5",
+      "pitch": 69,
+      "start": 4,
+      "duration": 0.65,
+      "velocity": 0.8
+    },
+    {
+      "id": "note-initial-6",
+      "pitch": 67,
+      "start": 5,
+      "duration": 0.65,
+      "velocity": 0.6
+    },
+    {
+      "id": "note-initial-7",
+      "pitch": 64,
+      "start": 6,
+      "duration": 0.65,
+      "velocity": 0.6
+    },
+    {
+      "id": "note-initial-8",
+      "pitch": 62,
+      "start": 7,
+      "duration": 1,
+      "velocity": 0.6
+    }
+  ],
+  "chords": [
+    {
+      "id": "chord-initial-1",
+      "name": "Cmaj7",
+      "pitches": [
+        60,
+        64,
+        67,
+        71
+      ],
+      "start": 0,
+      "duration": 4
+    },
+    {
+      "id": "chord-initial-2",
+      "name": "Am7",
+      "pitches": [
+        57,
+        60,
+        64,
+        67
+      ],
+      "start": 4,
+      "duration": 4
+    }
+  ],
+  "layers": {
+    "melody": true,
+    "harmony": false,
+    "bass": false
+  },
+  "locks": {
+    "sound": false,
+    "rhythm": true,
+    "harmony": false
+  }
+}

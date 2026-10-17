@@ -1,0 +1,386 @@
+{
+  "generatedAt": "2026-10-09T07:16:48.049Z",
+  "kind": "deterministic-candidate-tool-regression",
+  "model": null,
+  "caseCount": 50,
+  "runCount": 50,
+  "passed": 50,
+  "limitation": "50个案例为10类约束的5组变体；没有调用模型，不代表模型质量或用户满意度。",
+  "rows": [
+    {
+      "id": "sound-edit-1",
+      "category": "sound-edit",
+      "expectedAccepted": true,
+      "accepted": true,
+      "passed": true
+    },
+    {
+      "id": "sound-lock-1",
+      "category": "sound-lock",
+      "expectedAccepted": false,
+      "accepted": false,
+      "passed": true,
+      "error": "音色已锁定，请先解锁。"
+    },
+    {
+      "id": "rhythm-pitch-1",
+      "category": "rhythm-pitch",
+      "expectedAccepted": true,
+      "accepted": true,
+      "passed": true
+    },
+    {
+      "id": "rhythm-lock-1",
+      "category": "rhythm-lock",
+      "expectedAccepted": false,
+      "accepted": false,
+      "passed": true,
+      "error": "节奏已锁定，此候选改变了时序或力度。"
+    },
+    {
+      "id": "selection-edit-1",
+      "category": "selection-edit",
+      "expectedAccepted": true,
+      "accepted": true,
+      "passed": true
+    },
+    {
+      "id": "selection-boundary-1",
+      "category": "selection-boundary",
+      "expectedAccepted": false,
+      "accepted": false,
+      "passed": true,
+      "error": "只允许修改选中的音符；未选中的音符必须保持不变。"
+    },
+    {
+      "id": "chord-overlap-1",
+      "category": "chord-overlap",
+      "expectedAccepted": false,
+      "accepted": false,
+      "passed": true,
+      "error": "schema-or-range-rejection"
+    },
+    {
+      "id": "clip-boundary-1",
+      "category": "clip-boundary",
+      "expectedAccepted": false,
+      "accepted": false,
+      "passed": true,
+      "error": "schema-or-range-rejection"
+    },
+    {
+      "id": "chord-progression-1",
+      "category": "chord-progression",
+      "expectedAccepted": true,
+      "accepted": true,
+      "passed": true
+    },
+    {
+      "id": "advanced-sound-1",
+      "category": "advanced-sound",
+      "expectedAccepted": true,
+      "accepted": true,
+      "passed": true
+    },
+    {
+      "id": "sound-edit-2",
+      "category": "sound-edit",
+      "expectedAccepted": true,
+      "accepted": true,
+      "passed": true
+    },
+    {
+      "id": "sound-lock-2",
+      "category": "sound-lock",
+      "expectedAccepted": false,
+      "accepted": false,
+      "passed": true,
+      "error": "音色已锁定，请先解锁。"
+    },
+    {
+      "id": "rhythm-pitch-2",
+      "category": "rhythm-pitch",
+      "expectedAccepted": true,
+      "accepted": true,
+      "passed": true
+    },
+    {
+      "id": "rhythm-lock-2",
+      "category": "rhythm-lock",
+      "expectedAccepted": false,
+      "accepted": false,
+      "passed": true,
+      "error": "节奏已锁定，此候选改变了时序或力度。"
+    },
+    {
+      "id": "selection-edit-2",
+      "category": "selection-edit",
+      "expectedAccepted": true,
+      "accepted": true,
+      "passed": true
+    },
+    {
+      "id": "selection-boundary-2",
+      "category": "selection-boundary",
+      "expectedAccepted": false,
+      "accepted": false,
+      "passed": true,
+      "error": "只允许修改选中的音符；未选中的音符必须保持不变。"
+    },
+    {
+      "id": "chord-overlap-2",
+      "category": "chord-overlap",
+      "expectedAccepted": false,
+      "accepted": false,
+      "passed": true,
+      "error": "schema-or-range-rejection"
+    },
+    {
+      "id": "clip-boundary-2",
+      "category": "clip-boundary",
+      "expectedAccepted": false,
+      "accepted": false,
+      "passed": true,
+      "error": "schema-or-range-rejection"
+    },
+    {
+      "id": "chord-progression-2",
+      "category": "chord-progression",
+      "expectedAccepted": true,
+      "accepted": true,
+      "passed": true
+    },
+    {
+      "id": "advanced-sound-2",
+      "category": "advanced-sound",
+      "expectedAccepted": true,
+      "accepted": true,
+      "passed": true
+    },
+    {
+      "id": "sound-edit-3",
+      "category": "sound-edit",
+      "expectedAccepted": true,
+      "accepted": true,
+      "passed": true
+    },
+    {
+      "id": "sound-lock-3",
+      "category": "sound-lock",
+      "expectedAccepted": false,
+      "accepted": false,
+      "passed": true,
+      "error": "音色已锁定，请先解锁。"
+    },
+    {
+      "id": "rhythm-pitch-3",
+      "category": "rhythm-pitch",
+      "expectedAccepted": true,
+      "accepted": true,
+      "passed": true
+    },
+    {
+      "id": "rhythm-lock-3",
+      "category": "rhythm-lock",
+      "expectedAccepted": false,
+      "accepted": false,
+      "passed": true,
+      "error": "节奏已锁定，此候选改变了时序或力度。"
+    },
+    {
+      "id": "selection-edit-3",
+      "category": "selection-edit",
+      "expectedAccepted": true,
+      "accepted": true,
+      "passed": true
+    },
+    {
+      "id": "selection-boundary-3",
+      "category": "selection-boundary",
+      "expectedAccepted": false,
+      "accepted": false,
+      "passed": true,
+      "error": "只允许修改选中的音符；未选中的音符必须保持不变。"
+    },
+    {
+      "id": "chord-overlap-3",
+      "category": "chord-overlap",
+      "expectedAccepted": false,
+      "accepted": false,
+      "passed": true,
+      "error": "schema-or-range-rejection"
+    },
+    {
+      "id": "clip-boundary-3",
+      "category": "clip-boundary",
+      "expectedAccepted": false,
+      "accepted": false,
+      "passed": true,
+      "error": "schema-or-range-rejection"
+    },
+    {
+      "id": "chord-progression-3",
+      "category": "chord-progression",
+      "expectedAccepted": true,
+      "accepted": true,
+      "passed": true
+    },
+    {
+      "id": "advanced-sound-3",
+      "category": "advanced-sound",
+      "expectedAccepted": true,
+      "accepted": true,
+      "passed": true
+    },
+    {
+      "id": "sound-edit-4",
+      "category": "sound-edit",
+      "expectedAccepted": true,
+      "accepted": true,
+      "passed": true
+    },
+    {
+      "id": "sound-lock-4",
+      "category": "sound-lock",
+      "expectedAccepted": false,
+      "accepted": false,
+      "passed": true,
+      "error": "音色已锁定，请先解锁。"
+    },
+    {
+      "id": "rhythm-pitch-4",
+      "category": "rhythm-pitch",
+      "expectedAccepted": true,
+      "accepted": true,
+      "passed": true
+    },
+    {
+      "id": "rhythm-lock-4",
+      "category": "rhythm-lock",
+      "expectedAccepted": false,
+      "accepted": false,
+      "passed": true,
+      "error": "节奏已锁定，此候选改变了时序或力度。"
+    },
+    {
+      "id": "selection-edit-4",
+      "category": "selection-edit",
+      "expectedAccepted": true,
+      "accepted": true,
+      "passed": true
+    },
+    {
+      "id": "selection-boundary-4",
+      "category": "selection-boundary",
+      "expectedAccepted": false,
+      "accepted": false,
+      "passed": true,
+      "error": "只允许修改选中的音符；未选中的音符必须保持不变。"
+    },
+    {
+      "id": "chord-overlap-4",
+      "category": "chord-overlap",
+      "expectedAccepted": false,
+      "accepted": false,
+      "passed": true,
+      "error": "schema-or-range-rejection"
+    },
+    {
+      "id": "clip-boundary-4",
+      "category": "clip-boundary",
+      "expectedAccepted": false,
+      "accepted": false,
+      "passed": true,
+      "error": "schema-or-range-rejection"
+    },
+    {
+      "id": "chord-progression-4",
+      "category": "chord-progression",
+      "expectedAccepted": true,
+      "accepted": true,
+      "passed": true
+    },
+    {
+      "id": "advanced-sound-4",
+      "category": "advanced-sound",
+      "expectedAccepted": true,
+      "accepted": true,
+      "passed": true
+    },
+    {
+      "id": "sound-edit-5",
+      "category": "sound-edit",
+      "expectedAccepted": true,
+      "accepted": true,
+      "passed": true
+    },
+    {
+      "id": "sound-lock-5",
+      "category": "sound-lock",
+      "expectedAccepted": false,
+      "accepted": false,
+      "passed": true,
+      "error": "音色已锁定，请先解锁。"
+    },
+    {
+      "id": "rhythm-pitch-5",
+      "category": "rhythm-pitch",
+      "expectedAccepted": true,
+      "accepted": true,
+      "passed": true
+    },
+    {
+      "id": "rhythm-lock-5",
+      "category": "rhythm-lock",
+      "expectedAccepted": false,
+      "accepted": false,
+      "passed": true,
+      "error": "节奏已锁定，此候选改变了时序或力度。"
+    },
+    {
+      "id": "selection-edit-5",
+      "category": "selection-edit",
+      "expectedAccepted": true,
+      "accepted": true,
+      "passed": true
+    },
+    {
+      "id": "selection-boundary-5",
+      "category": "selection-boundary",
+      "expectedAccepted": false,
+      "accepted": false,
+      "passed": true,
+      "error": "只允许修改选中的音符；未选中的音符必须保持不变。"
+    },
+    {
+      "id": "chord-overlap-5",
+      "category": "chord-overlap",
+      "expectedAccepted": false,
+      "accepted": false,
+      "passed": true,
+      "error": "schema-or-range-rejection"
+    },
+    {
+      "id": "clip-boundary-5",
+      "category": "clip-boundary",
+      "expectedAccepted": false,
+      "accepted": false,
+      "passed": true,
+      "error": "schema-or-range-rejection"
+    },
+    {
+      "id": "chord-progression-5",
+      "category": "chord-progression",
+      "expectedAccepted": true,
+      "accepted": true,
+      "passed": true
+    },
+    {
+      "id": "advanced-sound-5",
+      "category": "advanced-sound",
+      "expectedAccepted": true,
+      "accepted": true,
+      "passed": true
+    }
+  ]
+}

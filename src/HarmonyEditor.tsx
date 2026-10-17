@@ -1,0 +1,37 @@
+import { useEffect, useState } from 'react';
+import { LockKeyhole, UnlockKeyhole } from 'lucide-react';
+import { mapPitch, defaultTonality, chordName } from './tonality';
+import ChordPianoEditor from './ChordPianoEditor';
+import { noteName, type Patch, type Project } from './domain';
+import { chordQualities, chordShape, makeChord, qualityNames } from './music-edit';
+
+export default function HarmonyEditor({ project, disabled, onPatch, onListen, onLock, onStop }: { project: Project; disabled: boolean; onPatch: (patch: Patch) => void; onListen: (project: Project, label: string) => void; onLock: () => void; onStop: () => void }) {
+  const [pianoOpen, setPianoOpen] = useState(false);
+  const [selected, setSelected] = useState(0); const [root, setRoot] = useState(60); const [quality, setQuality] = useState<keyof typeof chordQualities>('maj7'); const [inversion, setInversion] = useState(0); const [start, setStart] = useState(0); const [duration, setDuration] = useState(4); const [custom, setCustom] = useState('60, 64, 67, 71');
+  const chord = project.chords[selected]; const locked = disabled || project.locks.harmony; const beats = project.bars * 4;
+  useEffect(() => {
+    if (!chord) return; setStart(chord.start); setDuration(chord.duration); setCustom(chord.pitches.join(', '));
+    const shape = chordShape(chord); setRoot(shape.root); setQuality(shape.quality); setInversion(shape.inversion);
+  }, [chord]);
+  const edit = (next: typeof chord) => { if (next) onPatch({ chords: project.chords.map((c, i) => i === selected ? { ...next, id: c.id } : c), layers: { harmony: true } }); };
+  function add() {
+    let at = 0; for (const c of [...project.chords].sort((a, b) => a.start - b.start)) { if (c.start - at >= 0.125) break; at = c.start + c.duration; }
+    const next = [...project.chords].filter(c => c.start >= at).sort((a, b) => a.start - b.start)[0]?.start ?? beats;
+    if (next - at < 0.125) return;
+    const pitches = [60, 64, 67].map(p => mapPitch(p, defaultTonality, project.tonality));
+    onPatch({ chords: [...project.chords, { ...makeChord(60, 'major', 0, at, Math.min(4, next - at)), pitches, name: chordName(pitches) }], layers: { harmony: true } }); setSelected(project.chords.length);
+  }
+  useEffect(() => { setPianoOpen(false); }, [project.revision]);
+  const filled = project.chords.reduce((sum, c) => sum + c.duration, 0) >= beats - 0.00001;
+  function audition(c: NonNullable<typeof chord>) { onListen({ ...project, notes: c.pitches.map(pitch => ({ id: `audition-${pitch}`, pitch, start: 0, duration: Math.min(2, beats), velocity: 0.45 })), layers: { melody: true, harmony: false, bass: false } }, `${c.name} 和弦`); }
+  return <section className="harmony-editor"><div className="panel-top"><div><span className="eyebrow">CHORD PROGRESSION</span><h2>和弦进行 <span>{project.chords.length} CHORDS</span></h2></div><button className={`lock-button ${project.locks.harmony ? 'locked' : ''}`} aria-label="锁定和弦" aria-pressed={project.locks.harmony} disabled={disabled} onClick={onLock}>{project.locks.harmony ? <LockKeyhole size={14} aria-hidden="true"/> : <UnlockKeyhole size={14} aria-hidden="true"/>}{project.locks.harmony ? '和弦已锁定' : '和弦可修改'}</button></div>
+    <p className="harmony-intro">和弦是在旋律下同时响起的一组音，它会改变同一段旋律的情绪。双击和弦可在钢琴窗口调整构成音；下方选项可快速选择形态、起点、时长和转位，也可以让伙伴建议。添加或应用编辑会打开和弦声部；底部可随时关闭，比较有无伴奏。</p>
+    <div className="chord-timeline" aria-label="和弦时间线"><div style={{ width: Math.max(400, beats * 48), minWidth: '100%' }}><div className="chord-beats">{Array.from({ length: project.bars }, (_, i) => <span key={i} style={{ left: `${i / project.bars * 100}%` }}>{i + 1} 小节</span>)}</div>{project.chords.map((c, i) => <button key={i} className={`timeline-chord ${i === selected ? 'selected' : ''}`} style={{ left: `${c.start / beats * 100}%`, width: `${c.duration / beats * 100}%` }} aria-label={`编辑和弦 ${i + 1} ${c.name}`} aria-pressed={i === selected} onClick={() => setSelected(i)} onDoubleClick={() => { setSelected(i); setPianoOpen(true); }} onKeyDown={event => { if (event.key === 'Enter') { event.preventDefault(); setSelected(i); setPianoOpen(true); } }}>{c.name}<span className="chord-mini-notes" aria-hidden="true">{c.pitches.map(pitch => <i key={pitch} style={{ bottom: `${(pitch - 33) / 63 * 16}px` }}/>)}</span><small>{c.duration} 拍 · 双击编辑</small></button>)}</div></div>
+    <div className="chord-actions"><button className="editor-button" disabled={locked || filled || project.chords.length >= 64} onClick={add}>＋ 添加和弦</button>{filled && <small>片段已排满；缩短一个和弦，或增加小节后继续添加。</small>}<button disabled={locked} onClick={() => { onPatch({ chords: [makeChord(60, 'major', 0, 0, beats / 4), makeChord(57, 'minor', 0, beats / 4, beats / 4), makeChord(53, 'major', 0, beats / 2, beats / 4), makeChord(55, 'major', 0, beats * 0.75, beats / 4)], layers: { harmony: true } }); setSelected(0); }}>试试 C → Am → F → G</button></div>
+    {chord ? <div className="chord-edit-form"><div className="chord-title"><strong>{chord.name}</strong><span>{chord.pitches.map(noteName).join(' · ')}</span><button aria-label="试听所选和弦" onClick={() => audition(chord)}>▶ 试听</button><button aria-label="删除所选和弦" disabled={locked} onClick={() => { onPatch({ chords: project.chords.filter((_, i) => i !== selected) }); setSelected(Math.max(0, selected - 1)); }}>删除</button></div>
+      <button className="editor-button open-voicing" onClick={() => setPianoOpen(true)}>在钢琴窗口编辑构成音</button><div className="chord-form-controls"><label>根音<select aria-label="和弦根音" value={root} disabled={locked} onChange={e => setRoot(Number(e.target.value))}>{Array.from({ length: 52 }, (_, i) => <option value={33 + i} key={i}>{noteName(33 + i)}</option>)}</select></label><label>性质<select aria-label="和弦性质" value={quality} disabled={locked} onChange={e => { setQuality(e.target.value as typeof quality); setInversion(0); }}>{Object.entries(qualityNames).map(([id, name]) => <option value={id} key={id}>{name}</option>)}</select></label><label>转位<select aria-label="和弦转位" value={inversion} disabled={locked} onChange={e => setInversion(Number(e.target.value))}>{chordQualities[quality].map((_, i) => <option value={i} key={i}>{i === 0 ? '原位' : `第 ${i} 转位`}</option>)}</select></label><label>起点（拍）<input aria-label="和弦起点" type="number" step={0.25} min={0} max={beats - 0.125} value={start} disabled={locked} onChange={e => setStart(Number(e.target.value))}/></label><label>时长（拍）<input aria-label="和弦时长" type="number" step={0.25} min={0.125} max={beats} value={duration} disabled={locked} onChange={e => setDuration(Number(e.target.value))}/></label><button className="editor-button" disabled={locked} onClick={() => edit(makeChord(root, quality, inversion, start, duration))}>应用和弦编辑</button></div>
+      <details className="custom-voicing"><summary>自己指定构成音</summary><label>MIDI 音高，用逗号分隔（33–96）<input aria-label="自定义和弦音高" value={custom} disabled={locked} onChange={e => setCustom(e.target.value)}/></label><button disabled={locked} onClick={() => edit({ ...chord, name: '自定义和弦', pitches: custom.split(/[,，\s]+/).filter(Boolean).map(Number), start, duration })}>应用构成音</button></details>
+    </div> : <p className="harmony-intro">这里可以留白，也可以添加第一个和弦。AI 并不是使用这一区域的必要条件。</p>}
+    {pianoOpen && chord && <ChordPianoEditor key={chord.id} chord={chord} project={project} locked={locked} onApply={next => { edit(next); setPianoOpen(false); onStop(); }} onClose={() => { setPianoOpen(false); onStop(); }} onListen={audition}/>}
+  </section>;
+}

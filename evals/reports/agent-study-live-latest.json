@@ -1,0 +1,855 @@
+{
+  "kind": "live-model-real-browser",
+  "model": "deepseek-flash",
+  "generatedAt": "2026-10-09T07:10:39.911Z",
+  "limitations": "脚本对照刻意设置不同策略，仅验证机制与测量管道，不代表模型质量提升。真实评测也需多次重复与人工盲听。不同变体调用预算不同，应同时比较成本与耗时。",
+  "rows": [
+    {
+      "scenario": "silent-source",
+      "variant": "compare",
+      "completed": true,
+      "taskSuccess": true,
+      "originalUnchanged": true,
+      "constraintValid": true,
+      "revised": false,
+      "actualAudioRendered": true,
+      "durationMs": 20529,
+      "usage": {
+        "inputTokens": 111668,
+        "outputTokens": 3812
+      },
+      "toolCalls": 12,
+      "reply": {
+        "message": "已定位无声根因并给出两个可试听方案。\n\n【无声根因】原音色三个振荡器 enabled 全部为 false，合成器没有任何声源，因此无论波形/滤波如何设置都不会发声。两个方案都先启用振荡器，这是修复静音的关键。\n\n【保留内容】旋律 note-initial-1..8（音高/起点/时值/力度）与和弦 chord-initial-1 Cmaj7、chord-initial-2 Am7 完全未改动，2 小节与 104 BPM 不变；同时用 set_layers 打开 harmony 让和弦可听（bass 保持关闭，避免低音区堆积）。\n\n【方案A 柔光三角 candidate-cf5ba07d】三振荡器：三角基音(0.8) + 正弦(0.3, 微失谐-4) + 高八度三角(0.22, 声像±0.15)；低通 9kHz 保留空气感，亮度 42 维持原性格；起音 0.06s、释音 1.4s，合唱 0.25、混响 0.28/1.6s。实测：RMS 0.0068、峰值 0.041、clippingRatio 0、频谱重心约 403Hz、时长 7.82s。\n\n【方案B 玻璃气声 candidate-9a7585a3】正弦为主(0.75, unison 2 失谐 9) + 三角(0.3) + 高八度正弦(0.18)；启用 glass 35 与 noise 0.06 气声层，低通压到 6kHz、亮度 30 更暗；起音 0.12s、释音 2.2s 更飘，合唱 0.35、混响 0.45/2.4s 空间更大。实测：RMS 0.0071、峰值 0.048、clippingRatio 0、频谱重心约 398Hz、时长 9.42s。\n\n【检查项】两者均实测非静音（RMS 远大于 0）、无削波、无低音区堆积，assessment 无 findings，因此按规则不做修正（无具体问题可修）。\n\n【差异与选择依据】两者响度与频谱重心接近（RMS 差约 4%，重心差约 5Hz），说明差异主要在音色质感而非音量：A 更接近原始三角波、起音更利落、尾音较短，适合保留原曲清亮性格；B 更暗更慢、气声与玻璃泛音更多、混响更长（时长 9.42s vs 7.82s 反映尾音更长），适合更飘渺的氛围。指标只反映响度/频谱/削波等具体问题，不代表哪个更好听，请以试听为准。",
+        "candidates": [
+          {
+            "title": "方案A 柔光三角",
+            "explanation": "当前无声的根因是三个振荡器 enabled 全为 false，合成器没有声源。方案A 启用三振荡器（三角基音 + 正弦 + 高八度三角），保留原三角波性格与 42 亮度；低通 9kHz 保留空气感，起音 0.06s 稍慢、释音 1.4s 拉长，加轻合唱与混响营造柔和微光。旋律与和弦完全不动。",
+            "patch": {
+              "sound": {
+                "wave": "triangle",
+                "brightness": 42,
+                "attack": 0.06,
+                "release": 1.4,
+                "width": 7,
+                "glass": 0,
+                "oscillators": [
+                  {
+                    "enabled": true,
+                    "wave": "triangle",
+                    "level": 0.8,
+                    "transpose": 0,
+                    "fine": 0,
+                    "unison": 1,
+                    "detune": 7,
+                    "pan": 0,
+                    "position": 0,
+                    "table": "basic"
+                  },
+                  {
+                    "enabled": true,
+                    "wave": "sine",
+                    "level": 0.3,
+                    "transpose": 0,
+                    "fine": -4,
+                    "unison": 1,
+                    "detune": 7,
+                    "pan": -0.15,
+                    "position": 0,
+                    "table": "basic"
+                  },
+                  {
+                    "enabled": true,
+                    "wave": "triangle",
+                    "level": 0.22,
+                    "transpose": 12,
+                    "fine": 3,
+                    "unison": 1,
+                    "detune": 7,
+                    "pan": 0.15,
+                    "position": 0,
+                    "table": "basic"
+                  }
+                ],
+                "filters": [
+                  {
+                    "enabled": true,
+                    "type": "lowpass",
+                    "cutoff": 9000,
+                    "resonance": 0.6,
+                    "envelope": 0
+                  },
+                  {
+                    "enabled": false,
+                    "type": "lowpass",
+                    "cutoff": 15000,
+                    "resonance": 0.6,
+                    "envelope": 0
+                  }
+                ],
+                "decay": 0.25,
+                "sustain": 0.6,
+                "noise": 0,
+                "sub": 0,
+                "env2": {
+                  "attack": 0.01,
+                  "decay": 0.5,
+                  "sustain": 0,
+                  "release": 0.3
+                },
+                "lfos": [
+                  {
+                    "wave": "sine",
+                    "rate": 2,
+                    "sync": false
+                  },
+                  {
+                    "wave": "triangle",
+                    "rate": 0.5,
+                    "sync": false
+                  }
+                ],
+                "modulations": [],
+                "effects": {
+                  "distortion": 0,
+                  "chorus": 0.25,
+                  "delay": 0,
+                  "delayTime": 0.25,
+                  "feedback": 0.3,
+                  "reverb": 0.28,
+                  "reverbTime": 1.6,
+                  "phaser": 0,
+                  "flanger": 0,
+                  "eqLow": 0,
+                  "eqMid": 0,
+                  "eqHigh": 0,
+                  "threshold": -8,
+                  "ratio": 12
+                }
+              },
+              "layers": {
+                "melody": true,
+                "harmony": true,
+                "bass": false
+              }
+            },
+            "id": "candidate-cf5ba07d-f549-4fa5-8d9d-df03de28f66c",
+            "baseRevision": 0,
+            "project": {
+              "format": "synthverse-project",
+              "version": 3,
+              "title": "玻璃上的微光",
+              "bars": 2,
+              "revision": 1,
+              "bpm": 104,
+              "sound": {
+                "wave": "triangle",
+                "brightness": 42,
+                "attack": 0.06,
+                "release": 1.4,
+                "width": 7,
+                "glass": 0,
+                "oscillators": [
+                  {
+                    "enabled": true,
+                    "wave": "triangle",
+                    "level": 0.8,
+                    "transpose": 0,
+                    "fine": 0,
+                    "unison": 1,
+                    "detune": 7,
+                    "pan": 0,
+                    "position": 0,
+                    "table": "basic"
+                  },
+                  {
+                    "enabled": true,
+                    "wave": "sine",
+                    "level": 0.3,
+                    "transpose": 0,
+                    "fine": -4,
+                    "unison": 1,
+                    "detune": 7,
+                    "pan": -0.15,
+                    "position": 0,
+                    "table": "basic"
+                  },
+                  {
+                    "enabled": true,
+                    "wave": "triangle",
+                    "level": 0.22,
+                    "transpose": 12,
+                    "fine": 3,
+                    "unison": 1,
+                    "detune": 7,
+                    "pan": 0.15,
+                    "position": 0,
+                    "table": "basic"
+                  }
+                ],
+                "filters": [
+                  {
+                    "enabled": true,
+                    "type": "lowpass",
+                    "cutoff": 9000,
+                    "resonance": 0.6,
+                    "envelope": 0
+                  },
+                  {
+                    "enabled": false,
+                    "type": "lowpass",
+                    "cutoff": 15000,
+                    "resonance": 0.6,
+                    "envelope": 0
+                  }
+                ],
+                "decay": 0.25,
+                "sustain": 0.6,
+                "noise": 0,
+                "sub": 0,
+                "env2": {
+                  "attack": 0.01,
+                  "decay": 0.5,
+                  "sustain": 0,
+                  "release": 0.3
+                },
+                "lfos": [
+                  {
+                    "wave": "sine",
+                    "rate": 2,
+                    "sync": false
+                  },
+                  {
+                    "wave": "triangle",
+                    "rate": 0.5,
+                    "sync": false
+                  }
+                ],
+                "modulations": [],
+                "effects": {
+                  "distortion": 0,
+                  "chorus": 0.25,
+                  "delay": 0,
+                  "delayTime": 0.25,
+                  "feedback": 0.3,
+                  "reverb": 0.28,
+                  "reverbTime": 1.6,
+                  "phaser": 0,
+                  "flanger": 0,
+                  "eqLow": 0,
+                  "eqMid": 0,
+                  "eqHigh": 0,
+                  "threshold": -8,
+                  "ratio": 12
+                }
+              },
+              "notes": [
+                {
+                  "id": "note-initial-1",
+                  "pitch": 60,
+                  "start": 0,
+                  "duration": 0.65,
+                  "velocity": 0.8
+                },
+                {
+                  "id": "note-initial-2",
+                  "pitch": 64,
+                  "start": 1,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-3",
+                  "pitch": 67,
+                  "start": 2,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-4",
+                  "pitch": 71,
+                  "start": 3,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-5",
+                  "pitch": 69,
+                  "start": 4,
+                  "duration": 0.65,
+                  "velocity": 0.8
+                },
+                {
+                  "id": "note-initial-6",
+                  "pitch": 67,
+                  "start": 5,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-7",
+                  "pitch": 64,
+                  "start": 6,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-8",
+                  "pitch": 62,
+                  "start": 7,
+                  "duration": 1,
+                  "velocity": 0.6
+                }
+              ],
+              "chords": [
+                {
+                  "id": "chord-initial-1",
+                  "name": "Cmaj7",
+                  "pitches": [
+                    60,
+                    64,
+                    67,
+                    71
+                  ],
+                  "start": 0,
+                  "duration": 4
+                },
+                {
+                  "id": "chord-initial-2",
+                  "name": "Am7",
+                  "pitches": [
+                    57,
+                    60,
+                    64,
+                    67
+                  ],
+                  "start": 4,
+                  "duration": 4
+                }
+              ],
+              "layers": {
+                "melody": true,
+                "harmony": true,
+                "bass": false
+              },
+              "locks": {
+                "sound": false,
+                "rhythm": false,
+                "harmony": false
+              }
+            },
+            "parentIds": [],
+            "assessment": {
+              "measured": true,
+              "findings": []
+            },
+            "citations": [
+              {
+                "id": "soft-pad",
+                "title": "柔和铺底与起音",
+                "source": "docs/music-knowledge.md#soft-pad"
+              },
+              {
+                "id": "reverb-space",
+                "title": "空间感与混响留白",
+                "source": "docs/music-knowledge.md#reverb-space"
+              }
+            ],
+            "metrics": {
+              "basis": "browser-offline-audio",
+              "durationSeconds": 7.815396825396825,
+              "sampleRate": 44100,
+              "rms": 0.006822842724007145,
+              "peak": 0.040970731526613235,
+              "clippingRatio": 0,
+              "spectralCentroidHz": 402.56762727002973,
+              "highFrequencyEnergyRatio": 0.0000014764098407875586
+            }
+          },
+          {
+            "title": "方案B 玻璃气声",
+            "explanation": "同样修正无声根因（振荡器全禁用）。方案B 走更飘的气声路线：正弦为主音 + 轻微失谐三角，启用 glass 泛音与少量 noise 气声层，低通压到 6kHz 更暗，起音 0.12s 更慢、释音 2.2s 更长，混响 0.45/2.4s 空间更大。旋律与和弦完全不动。",
+            "patch": {
+              "sound": {
+                "wave": "sine",
+                "brightness": 30,
+                "attack": 0.12,
+                "release": 2.2,
+                "width": 14,
+                "glass": 35,
+                "oscillators": [
+                  {
+                    "enabled": true,
+                    "wave": "sine",
+                    "level": 0.75,
+                    "transpose": 0,
+                    "fine": 0,
+                    "unison": 2,
+                    "detune": 9,
+                    "pan": 0,
+                    "position": 0,
+                    "table": "basic"
+                  },
+                  {
+                    "enabled": true,
+                    "wave": "triangle",
+                    "level": 0.3,
+                    "transpose": 0,
+                    "fine": -6,
+                    "unison": 1,
+                    "detune": 7,
+                    "pan": -0.25,
+                    "position": 0,
+                    "table": "basic"
+                  },
+                  {
+                    "enabled": true,
+                    "wave": "sine",
+                    "level": 0.18,
+                    "transpose": 12,
+                    "fine": 5,
+                    "unison": 1,
+                    "detune": 7,
+                    "pan": 0.25,
+                    "position": 0,
+                    "table": "basic"
+                  }
+                ],
+                "filters": [
+                  {
+                    "enabled": true,
+                    "type": "lowpass",
+                    "cutoff": 6000,
+                    "resonance": 0.8,
+                    "envelope": 0
+                  },
+                  {
+                    "enabled": false,
+                    "type": "lowpass",
+                    "cutoff": 15000,
+                    "resonance": 0.6,
+                    "envelope": 0
+                  }
+                ],
+                "decay": 0.35,
+                "sustain": 0.55,
+                "noise": 0.06,
+                "sub": 0,
+                "env2": {
+                  "attack": 0.01,
+                  "decay": 0.5,
+                  "sustain": 0,
+                  "release": 0.3
+                },
+                "lfos": [
+                  {
+                    "wave": "sine",
+                    "rate": 2,
+                    "sync": false
+                  },
+                  {
+                    "wave": "triangle",
+                    "rate": 0.5,
+                    "sync": false
+                  }
+                ],
+                "modulations": [],
+                "effects": {
+                  "distortion": 0,
+                  "chorus": 0.35,
+                  "delay": 0,
+                  "delayTime": 0.25,
+                  "feedback": 0.3,
+                  "reverb": 0.45,
+                  "reverbTime": 2.4,
+                  "phaser": 0,
+                  "flanger": 0,
+                  "eqLow": 0,
+                  "eqMid": 0,
+                  "eqHigh": 0,
+                  "threshold": -8,
+                  "ratio": 12
+                }
+              },
+              "layers": {
+                "melody": true,
+                "harmony": true,
+                "bass": false
+              }
+            },
+            "id": "candidate-9a7585a3-9d0f-46da-882c-ad57f5ea6736",
+            "baseRevision": 0,
+            "project": {
+              "format": "synthverse-project",
+              "version": 3,
+              "title": "玻璃上的微光",
+              "bars": 2,
+              "revision": 1,
+              "bpm": 104,
+              "sound": {
+                "wave": "sine",
+                "brightness": 30,
+                "attack": 0.12,
+                "release": 2.2,
+                "width": 14,
+                "glass": 35,
+                "oscillators": [
+                  {
+                    "enabled": true,
+                    "wave": "sine",
+                    "level": 0.75,
+                    "transpose": 0,
+                    "fine": 0,
+                    "unison": 2,
+                    "detune": 9,
+                    "pan": 0,
+                    "position": 0,
+                    "table": "basic"
+                  },
+                  {
+                    "enabled": true,
+                    "wave": "triangle",
+                    "level": 0.3,
+                    "transpose": 0,
+                    "fine": -6,
+                    "unison": 1,
+                    "detune": 7,
+                    "pan": -0.25,
+                    "position": 0,
+                    "table": "basic"
+                  },
+                  {
+                    "enabled": true,
+                    "wave": "sine",
+                    "level": 0.18,
+                    "transpose": 12,
+                    "fine": 5,
+                    "unison": 1,
+                    "detune": 7,
+                    "pan": 0.25,
+                    "position": 0,
+                    "table": "basic"
+                  }
+                ],
+                "filters": [
+                  {
+                    "enabled": true,
+                    "type": "lowpass",
+                    "cutoff": 6000,
+                    "resonance": 0.8,
+                    "envelope": 0
+                  },
+                  {
+                    "enabled": false,
+                    "type": "lowpass",
+                    "cutoff": 15000,
+                    "resonance": 0.6,
+                    "envelope": 0
+                  }
+                ],
+                "decay": 0.35,
+                "sustain": 0.55,
+                "noise": 0.06,
+                "sub": 0,
+                "env2": {
+                  "attack": 0.01,
+                  "decay": 0.5,
+                  "sustain": 0,
+                  "release": 0.3
+                },
+                "lfos": [
+                  {
+                    "wave": "sine",
+                    "rate": 2,
+                    "sync": false
+                  },
+                  {
+                    "wave": "triangle",
+                    "rate": 0.5,
+                    "sync": false
+                  }
+                ],
+                "modulations": [],
+                "effects": {
+                  "distortion": 0,
+                  "chorus": 0.35,
+                  "delay": 0,
+                  "delayTime": 0.25,
+                  "feedback": 0.3,
+                  "reverb": 0.45,
+                  "reverbTime": 2.4,
+                  "phaser": 0,
+                  "flanger": 0,
+                  "eqLow": 0,
+                  "eqMid": 0,
+                  "eqHigh": 0,
+                  "threshold": -8,
+                  "ratio": 12
+                }
+              },
+              "notes": [
+                {
+                  "id": "note-initial-1",
+                  "pitch": 60,
+                  "start": 0,
+                  "duration": 0.65,
+                  "velocity": 0.8
+                },
+                {
+                  "id": "note-initial-2",
+                  "pitch": 64,
+                  "start": 1,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-3",
+                  "pitch": 67,
+                  "start": 2,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-4",
+                  "pitch": 71,
+                  "start": 3,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-5",
+                  "pitch": 69,
+                  "start": 4,
+                  "duration": 0.65,
+                  "velocity": 0.8
+                },
+                {
+                  "id": "note-initial-6",
+                  "pitch": 67,
+                  "start": 5,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-7",
+                  "pitch": 64,
+                  "start": 6,
+                  "duration": 0.65,
+                  "velocity": 0.6
+                },
+                {
+                  "id": "note-initial-8",
+                  "pitch": 62,
+                  "start": 7,
+                  "duration": 1,
+                  "velocity": 0.6
+                }
+              ],
+              "chords": [
+                {
+                  "id": "chord-initial-1",
+                  "name": "Cmaj7",
+                  "pitches": [
+                    60,
+                    64,
+                    67,
+                    71
+                  ],
+                  "start": 0,
+                  "duration": 4
+                },
+                {
+                  "id": "chord-initial-2",
+                  "name": "Am7",
+                  "pitches": [
+                    57,
+                    60,
+                    64,
+                    67
+                  ],
+                  "start": 4,
+                  "duration": 4
+                }
+              ],
+              "layers": {
+                "melody": true,
+                "harmony": true,
+                "bass": false
+              },
+              "locks": {
+                "sound": false,
+                "rhythm": false,
+                "harmony": false
+              }
+            },
+            "parentIds": [],
+            "assessment": {
+              "measured": true,
+              "findings": []
+            },
+            "citations": [
+              {
+                "id": "soft-pad",
+                "title": "柔和铺底与起音",
+                "source": "docs/music-knowledge.md#soft-pad"
+              },
+              {
+                "id": "reverb-space",
+                "title": "空间感与混响留白",
+                "source": "docs/music-knowledge.md#reverb-space"
+              }
+            ],
+            "metrics": {
+              "basis": "browser-offline-audio",
+              "durationSeconds": 9.415396825396826,
+              "sampleRate": 44100,
+              "rms": 0.007120563216164395,
+              "peak": 0.04773655906319618,
+              "clippingRatio": 0,
+              "spectralCentroidHz": 397.57434588624903,
+              "highFrequencyEnergyRatio": 2.3615784422640405e-7
+            }
+          }
+        ],
+        "mode": "model",
+        "trace": {
+          "requestId": "375b5b06-eeca-408f-9740-e5a491749bfc",
+          "durationMs": 20529,
+          "events": [
+            {
+              "name": "model_step_1",
+              "status": "success",
+              "durationMs": 2245,
+              "detail": "已收到模型响应；工具与最终回复仍需校验。"
+            },
+            {
+              "name": "get_project_context",
+              "status": "success",
+              "durationMs": 1,
+              "detail": "已执行确定性工具；工程未改变。"
+            },
+            {
+              "name": "plan_creation",
+              "status": "success",
+              "durationMs": 1,
+              "detail": "已执行确定性工具；工程未改变。"
+            },
+            {
+              "name": "model_step_2",
+              "status": "success",
+              "durationMs": 1336,
+              "detail": "已收到模型响应；工具与最终回复仍需校验。"
+            },
+            {
+              "name": "search_music_knowledge",
+              "status": "success",
+              "durationMs": 1,
+              "detail": "已执行确定性工具；工程未改变。"
+            },
+            {
+              "name": "search_music_knowledge",
+              "status": "success",
+              "durationMs": 0,
+              "detail": "已执行确定性工具；工程未改变。"
+            },
+            {
+              "name": "model_step_3",
+              "status": "success",
+              "durationMs": 5635,
+              "detail": "已收到模型响应；工具与最终回复仍需校验。"
+            },
+            {
+              "name": "propose_edit",
+              "status": "success",
+              "durationMs": 15,
+              "detail": "已执行确定性工具；工程未改变。"
+            },
+            {
+              "name": "propose_edit",
+              "status": "success",
+              "durationMs": 2,
+              "detail": "已执行确定性工具；工程未改变。"
+            },
+            {
+              "name": "model_step_4",
+              "status": "success",
+              "durationMs": 1382,
+              "detail": "已收到模型响应；工具与最终回复仍需校验。"
+            },
+            {
+              "name": "render_preview",
+              "status": "success",
+              "durationMs": 628,
+              "detail": "已执行确定性工具；工程未改变。"
+            },
+            {
+              "name": "render_preview",
+              "status": "success",
+              "durationMs": 757,
+              "detail": "已执行确定性工具；工程未改变。"
+            },
+            {
+              "name": "model_step_5",
+              "status": "success",
+              "durationMs": 1043,
+              "detail": "已收到模型响应；工具与最终回复仍需校验。"
+            },
+            {
+              "name": "compare_candidates",
+              "status": "success",
+              "durationMs": 1,
+              "detail": "已执行确定性工具；工程未改变。"
+            },
+            {
+              "name": "model_step_6",
+              "status": "success",
+              "durationMs": 4052,
+              "detail": "已收到模型响应；工具与最终回复仍需校验。"
+            },
+            {
+              "name": "validate_final_reply",
+              "status": "error",
+              "durationMs": 0,
+              "detail": "最终回复不是有效 JSON，无法读取候选引用。 已注册2个候选，工程未改变。"
+            },
+            {
+              "name": "repair_final_reply",
+              "status": "success",
+              "durationMs": 0,
+              "detail": "请求一次最终回复格式修正，保留已注册候选；仍受10轮总限额约束。"
+            },
+            {
+              "name": "model_step_7",
+              "status": "success",
+              "durationMs": 3426,
+              "detail": "已收到模型响应；工具与最终回复仍需校验。"
+            },
+            {
+              "name": "validate_final_reply",
+              "status": "success",
+              "durationMs": 1,
+              "detail": "最终回复校验通过，引用2个本轮候选。"
+            },
+            {
+              "name": "render_preview_final",
+              "status": "success",
+              "durationMs": 0,
+              "detail": "浏览器离线渲染与指标分析完成。"
+            },
+            {
+              "name": "render_preview_final",
+              "status": "success",
+              "durationMs": 0,
+              "detail": "浏览器离线渲染与指标分析完成。"
+            }
+          ],
+          "usage": {
+            "inputTokens": 111668,
+            "outputTokens": 3812
+          }
+        }
+      },
+      "blindListeningScores": null
+    }
+  ]
+}

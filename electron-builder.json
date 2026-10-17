@@ -1,0 +1,10 @@
+{
+  "appId": "studio.synthverse.app",
+  "productName": "SynthVerse",
+  "directories": { "output": "release" },
+  "files": ["dist/**/*", "desktop-dist/**/*", "package.json", "!node_modules/**/*"],
+  "asar": true,
+  "npmRebuild": false,
+  "win": { "target": [{ "target": "portable", "arch": ["x64"] }], "signAndEditExecutable": false },
+  "portable": { "artifactName": "SynthVerse-${version}-Windows-x64-portable.exe" }
+}
