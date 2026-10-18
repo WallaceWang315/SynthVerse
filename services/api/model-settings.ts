@@ -1,7 +1,8 @@
+import type { PerceptionConfig } from './audio-perception';
 import type http from 'node:http';
 import { z } from 'zod';
 
-export type ModelConfig = { endpoint?: string; model?: string; apiKey?: string; executionMode?: 'agent' | 'direct' };
+export type ModelConfig = { perception?: PerceptionConfig; endpoint?: string; model?: string; apiKey?: string; executionMode?: 'agent' | 'direct' };
 export type SettingsStore = { save: (config: ModelConfig) => Promise<void>; storage: string; warning?: string };
 export function normalizeEndpoint(value: string) {
   const url = new URL(value.trim());
@@ -17,7 +18,7 @@ const inputSchema = z.object({ endpoint: z.string().trim().min(1).max(2000), mod
 export function parseSettings(input: unknown, current: ModelConfig): ModelConfig {
   const data = inputSchema.parse(input), endpoint = normalizeEndpoint(data.endpoint);
   const sameEndpoint = current.endpoint && normalizeEndpoint(current.endpoint) === endpoint;
-  return { endpoint, model: data.model, apiKey: data.clearKey ? undefined : data.apiKey || (sameEndpoint ? current.apiKey : undefined), executionMode: 'agent' };
+  return { ...(current.perception ? { perception: current.perception } : {}), endpoint, model: data.model, apiKey: data.clearKey ? undefined : data.apiKey || (sameEndpoint ? current.apiKey : undefined), executionMode: 'agent' };
 }
 export function createSettingsHandler(config: ModelConfig, store: SettingsStore) {
   const snapshot = () => ({ endpoint: config.endpoint ?? '', model: config.model ?? '', hasKey: Boolean(config.apiKey), storage: store.storage, warning: store.warning ?? '' });
@@ -33,7 +34,7 @@ export function createSettingsHandler(config: ModelConfig, store: SettingsStore)
     if (test) testing = true; else updating = true;
     try {
       if (req.method === 'DELETE') {
-        await store.save({}); config.endpoint = undefined; config.model = undefined; config.apiKey = undefined; config.executionMode = 'agent'; store.warning = undefined;
+        await store.save({ perception: config.perception }); config.endpoint = undefined; config.model = undefined; config.apiKey = undefined; config.executionMode = 'agent'; store.warning = undefined;
         send(200, snapshot()); return true;
       }
       if (!req.headers['content-type']?.startsWith('application/json')) { send(415, { error: '需要 JSON 请求。' }); return true; }

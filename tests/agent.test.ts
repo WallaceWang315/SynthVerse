@@ -95,7 +95,7 @@ describe('bounded Agent execution', () => {
       res.setHeader('Content-Type', 'application/json'); res.end(JSON.stringify({ choices: [{ message }], usage: { prompt_tokens: 100, completion_tokens: 50 } }));
     }));
     const url = await listen(createApiServer({ endpoint: upstream, model: 'test-model', apiKey: 'test-only-secret' }));
-    const response = await post(url); const reply = await response.json(); expect(response.status).toBe(200); expect(step).toBe(3); expect(records[0].tools.map((t: any) => t.function.name)).toEqual(['get_project_context', 'analyze_music', 'edit_sound', 'transform_motif', 'edit_chords', 'propose_edit', 'render_preview', 'compare_candidates', 'compose_candidates', 'plan_creation', 'revise_candidate', 'search_music_knowledge']);
+    const response = await post(url); const reply = await response.json(); expect(response.status).toBe(200); expect(step).toBe(3); expect(records[0].tools.map((t: any) => t.function.name)).toEqual(['get_project_context', 'analyze_music', 'edit_sound', 'propose_edit', 'render_preview', 'compare_candidates', 'compose_candidates', 'plan_creation', 'revise_candidate', 'search_music_knowledge']);
     expect(records[0].thinking).toBeUndefined(); expect(records[0].max_tokens).toBe(3200);
     expect(records[1].messages.filter((m: any) => m.role === 'tool')).toHaveLength(3); expect(reply.trace.events.filter((e: any) => e.name === 'propose_edit').map((e: any) => e.status)).toEqual(['error', 'success']); expect(reply.trace.usage).toEqual({ inputTokens: 300, outputTokens: 150 }); expect(JSON.stringify(reply.trace)).not.toContain('test-only-secret');
   });

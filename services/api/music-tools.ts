@@ -8,6 +8,8 @@ import { audioMetricsSchema, type AudioMetrics, type RegisteredCandidate } from 
 import type { AgentInput } from './agent';
 import { assessCandidate } from './creative-feedback';
 import { searchMusicKnowledge } from './music-knowledge';
+import { buildCreationBrief, type CreationBrief } from '../../src/creation-brief';
+import { candidateProvenance, roleAllowsTool, validateBrief } from './creative-roles';
 const propose = z.object({ title: z.string().min(1).max(60), explanation: z.string().min(1).max(600), operations: z.array(operationSchema).min(1).max(256), baseRevision: z.number().int().nonnegative(), knowledgeIds: z.array(z.string()).max(3).optional(), parentIds: z.array(z.string()).max(3).optional() }).strict();
 const plan = z.object({ goal: z.string().min(1).max(300), preserve: z.array(z.string().max(100)).max(6), preserveFields: z.array(z.enum(['sound', 'notes', 'chords', 'layers', 'bars'])).max(5).default([]), alternatives: z.array(z.string().min(1).max(150)).length(2), checks: z.array(z.enum(['silence', 'clipping', 'low-register-density', 'user-listening'])).min(1).max(4) }).strict();
 const revise = z.object({ candidateId: z.string(), title: z.string().min(1).max(60), explanation: z.string().min(1).max(600), operations: z.array(operationSchema).min(1).max(256), evidenceCodes: z.array(z.string()).min(1).max(3) }).strict();
@@ -32,6 +34,7 @@ const descriptions: Record<keyof typeof toolSchemas, string> = {
 export const musicToolDefinitions = Object.entries(toolSchemas).map(([name, schema]) => ({ type: 'function', function: { name, description: descriptions[name as keyof typeof toolSchemas], parameters: z.toJSONSchema(schema, { target: 'draft-7', io: 'input' }) } }));
 export type Renderer = (candidate: RegisteredCandidate, signal: AbortSignal) => Promise<AudioMetrics>;
 export class MusicToolRuntime {
+  readonly brief;
   readonly candidates = new Map<string, RegisteredCandidate>();
   readonly references = new Map<string, RegisteredCandidate>();
   readonly previewPromises = new Map<string, Promise<unknown>>();
@@ -40,18 +43,21 @@ export class MusicToolRuntime {
   readonly compared = new Set<string>();
   readonly retrieved = new Map<string, ReturnType<typeof searchMusicKnowledge>[number]>();
   private revisions = 0;
-  constructor(readonly input: AgentInput, readonly renderer?: Renderer, readonly signal: AbortSignal = new AbortController().signal) {
+  constructor(readonly input: AgentInput, readonly renderer?: Renderer, readonly signal: AbortSignal = new AbortController().signal, brief?: CreationBrief) {
+    this.brief = brief ?? buildCreationBrief(input);
     this.selection = input.selection.map(id => typeof id === 'number' ? input.project.notes[id]?.id : id);
     if (new Set(this.selection).size !== this.selection.length || this.selection.some(id => !input.project.notes.some(n => n.id === id))) throw new Error('音符选区无效。');
     for (const parent of input.parents ?? []) { if (this.references.has(parent.id)) throw new Error('参考候选 ID 重复。'); this.references.set(parent.id, parent); }
   }
-  register(value: { title: string; explanation: string; patch: Patch }, parentIds = [...this.references.keys()], revision = false) {
+  register(value: { title: string; explanation: string; patch: Patch }, parentIds: string[] = [], revision = false) {
     if (this.input.workflowMode === 'compare' && !this.creationPlan) throw new Error('比较模式必须先调用plan_creation记录两个方案。');
     if (this.input.workflowMode === 'compare' && this.candidates.size >= 2 && !revision) throw new Error('已生成两个方案；进一步修改请使用revise_candidate，最多一次。');
     this.signal.throwIfAborted(); if (this.candidates.size >= 8) throw new Error('本轮最多注册8个候选。');
     const candidate = candidateSchema.parse(value); const project = applyPatch(this.input.project, candidate.patch, this.input.project.revision); validateSelection(this.input.project, project, this.selection);
+    parentIds.forEach(id => this.get(id));
     for (const field of this.creationPlan?.preserveFields ?? []) if (!isDeepStrictEqual(project[field], this.input.project[field])) throw new Error(`创作计划要求保留${field}，该候选修改了它。`);
-    const result: RegisteredCandidate = { ...candidate, id: `candidate-${randomUUID()}`, baseRevision: this.input.project.revision, project, parentIds };
+    validateBrief(this.brief, this.input.project, project);
+    const result: RegisteredCandidate = { ...candidate, id: `candidate-${randomUUID()}`, baseRevision: this.input.project.revision, project, parentIds, provenance: candidateProvenance(this.brief, this.input.project, project) };
     result.assessment = assessCandidate(result);
     this.candidates.set(result.id, result); return { accepted: true, candidateId: result.id, candidate: result, baseRevision: result.baseRevision };
   }
@@ -64,6 +70,7 @@ export class MusicToolRuntime {
     return promise;
   }
   execute(name: string, args: unknown): unknown {
+    if (!roleAllowsTool(this.brief, name)) throw new Error('本次专业角色未获准使用此编辑工具。');
     const p = this.input.project;
     if (name === 'plan_creation') { if (this.candidates.size) throw new Error('候选创建后不能改写本轮计划。'); this.creationPlan = plan.parse(args); return { plan: this.creationPlan, budget: { candidatesToCompare: 2, revisions: 1, renders: 3 }, warning: '目标和审美需要用户判断，指标只检查具体问题。' }; }
     if (name === 'search_music_knowledge') { const entries = searchMusicKnowledge(search.parse(args).query); entries.forEach(entry => this.retrieved.set(entry.id, entry)); return { basis: 'project-authored-heuristics', entries }; }
@@ -79,7 +86,7 @@ export class MusicToolRuntime {
       result.candidate.citations = source.citations; result.candidate.revisionEvidence = a.evidenceCodes; this.revisions++;
       return result;
     }
-    if (name === 'get_project_context') { empty.parse(args); return { project: p, selection: this.selection, scope: this.input.scope, taskGoal: this.input.taskGoal ?? '', preferences: this.input.preferences ?? [], feedback: this.input.feedback ?? [], references: [...this.references.values()].map(c => ({ id: c.id, title: c.title, project: c.project, parentIds: c.parentIds })), engine: 'web-audio-v3', audioReceived: false }; }
+    if (name === 'get_project_context') { empty.parse(args); return { creationBrief: this.brief, project: p, selection: this.selection, scope: this.input.scope, taskGoal: this.input.taskGoal ?? '', preferences: this.input.preferences ?? [], feedback: this.input.feedback ?? [], references: [...this.references.values()].map(c => ({ id: c.id, title: c.title, project: c.project, parentIds: c.parentIds })), engine: 'web-audio-v3', audioReceived: false }; }
     if (name === 'analyze_music') { empty.parse(args); const notes = [...p.notes].sort((a, b) => a.start - b.start); return { basis: 'symbolic-notes-and-parameters', noteCount: notes.length, intervals: notes.slice(1).map((n, i) => n.pitch - notes[i].pitch), notesPerBeat: notes.length / (p.bars * 4), selectedNoteIds: this.selection, chordCount: p.chords.length, endingChord: p.chords.find(c => notes.at(-1) && notes.at(-1)!.start >= c.start && notes.at(-1)!.start < c.start + c.duration)?.name ?? null }; }
     if (name === 'edit_sound') { const a = sound.parse(args); const operations: Operation[] = [{ type: 'set_sound_parameters', values: a.values }]; const patch = compileOperations(p, { baseRevision: p.revision, operations }); validateSelection(p, applyPatch(p, patch, p.revision), this.selection); return { operations }; }
     if (name === 'transform_motif') { const a = motif.parse(args); if (new Set(a.noteIds).size !== a.noteIds.length) throw new Error('音符 ID 重复。'); const operations: Operation[] = a.noteIds.map(id => { const n = p.notes.find(n => n.id === id); if (!n) throw new Error('音符 ID 不存在。'); return { type: 'update_note', noteId: id, changes: a.action === 'transpose' ? { pitch: n.pitch + a.amount } : a.action === 'set_pitch' ? { pitch: a.amount } : { start: n.start * a.amount, duration: n.duration * a.amount } }; }); const patch = compileOperations(p, { baseRevision: p.revision, operations }); validateSelection(p, applyPatch(p, patch, p.revision), this.selection); return { operations }; }

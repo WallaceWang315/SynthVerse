@@ -4,7 +4,7 @@ import { initialProject, applyPatch, projectSchema } from '../src/domain';
 import { MusicToolRuntime } from '../services/api/music-tools';
 import { analyzeAudio } from '../src/audio-analysis';
 import { creativeScenarios, satisfiesScenario } from '../evals/scenarios';
-const input = () => ({ project: structuredClone(initialProject), prompt: '探索', scope: 'motif', history: [], selection: [] as string[] });
+const input = () => ({ project: structuredClone(initialProject), prompt: '探索音色、旋律和和弦', scope: 'motif', history: [], selection: [] as string[] });
 describe('transactional music Agent', () => {
   it('edits the correct ID after reordering and preserves rhythm locks', () => { const p = structuredClone(initialProject); p.notes.reverse(); p.locks.rhythm = true; const next = applyTransaction(p, { baseRevision: p.revision, operations: [{ type: 'update_note', noteId: 'note-initial-1', changes: { pitch: 72 } }] }); expect(next.notes.find(n => n.id === 'note-initial-1')?.pitch).toBe(72); expect(next.notes[0]).toEqual(p.notes[0]); });
   it('rejects partial transactions, unknown IDs and stale revisions without mutations', () => { const p = structuredClone(initialProject), original = structuredClone(p); expect(() => applyTransaction(p, { baseRevision: 0, operations: [{ type: 'update_note', noteId: p.notes[0].id, changes: { pitch: 72 } }, { type: 'delete_note', noteId: 'unknown' }] })).toThrow(); expect(p).toEqual(original); expect(() => applyTransaction(p, { baseRevision: 1, operations: [{ type: 'delete_note', noteId: p.notes[0].id }] })).toThrow(); });

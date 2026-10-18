@@ -41,7 +41,7 @@ describe('evidence-based creation loop', () => {
     expect(() => runtime.register({ title: 'A', explanation: '越过保留项', patch: { notes: [] } })).toThrow('计划');
   });
   it('rejects revisions outside the note selection or sound lock without consuming the revision', () => {
-    const i = input(); i.selection = [i.project.notes[0].id]; i.project.locks.sound = true;
+    const i = input(); i.prompt = '修改旋律与和弦'; i.selection = [i.project.notes[0].id]; i.project.locks.sound = true;
     const runtime = new MusicToolRuntime(i); runtime.execute('plan_creation', { ...plan, preserveFields: [] });
     const a = runtime.register({ title: '密集', explanation: '对照', patch: { chords: [{ id: 'low', name: 'Cmaj7', pitches: [48, 52, 55, 59], start: 0, duration: 8 }], layers: { harmony: true } } }).candidate;
     const b = runtime.register({ title: '开放', explanation: '对照', patch: { chords: [{ id: 'open', name: 'Cmaj7', pitches: [48, 64, 67, 71], start: 0, duration: 8 }], layers: { harmony: true } } }).candidate;
@@ -53,7 +53,7 @@ describe('evidence-based creation loop', () => {
     expect(revised.candidate.project.notes).toEqual(i.project.notes); expect(revised.candidate.project.sound).toEqual(i.project.sound);
   });
   it('distinguishes measurements from symbolic hints and never calls missing audio silent', () => {
-    const runtime = new MusicToolRuntime({ ...input(), workflowMode: 'quick' });
+    const runtime = new MusicToolRuntime({ ...input(), prompt: '修改和弦', workflowMode: 'quick' });
     const candidate = runtime.register({ title: '低音和弦', explanation: '密集排列', patch: { chords: [{ id: 'low', name: 'Cmaj7', pitches: [48, 52, 55, 59], start: 0, duration: 8 }], layers: { harmony: true } } }).candidate;
     expect(assessCandidate(candidate)).toEqual({ measured: false, findings: [{ code: 'low-register-density', basis: 'symbolic', detail: expect.any(String) }] });
     candidate.metrics = { ...metrics, clippingRatio: 0.01 }; expect(assessCandidate(candidate).findings.map(f => f.code)).toContain('clipping');

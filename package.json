@@ -18,7 +18,9 @@
     "desktop:build": "npm run build && node scripts/build-desktop.mjs",
     "desktop:dev": "npm run desktop:build && electron .",
     "desktop:pack": "npm run desktop:build && electron-builder --config electron-builder.json --win portable --x64",
-    "test:desktop": "node scripts/test-desktop.mjs"
+    "test:desktop": "node scripts/test-desktop.mjs",
+    "eval:listening": "tsx evals/listening-run.ts",
+    "eval:listening:model": "tsx --env-file-if-exists=.env evals/listening-run.ts --live"
   },
   "dependencies": {
     "@tonejs/midi": "^2.0.28",

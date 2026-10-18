@@ -85,17 +85,17 @@ export function theory(project: Project): string {
   return `最后一个音是 ${noteName(last.pitch)}。${last.pitch % 12 === project.tonality.tonic ? `它落在 ${tonalityName(project.tonality)} 的主音上，通常会加强结束感。` : `相对于 ${tonalityName(project.tonality)}，它仍有继续发展的可能。`}${isChordTone ? `它属于所在小节 ${chord.name} 的构成音。` : `它不在所在小节 ${chord.name} 的构成音中，但可以是经过音或延伸色彩。`}结束感还取决于节奏与和声；可以试听不同落点再决定。`;
 }
 
-function localRuleReply(prompt: string, project: Project): Reply {
+function localRuleReply(prompt: string, project: Project, role?: 'sound' | 'composition' | 'coordinator'): Reply {
   const pitches = (list: number[]) => project.notes.map((n, i) => ({ ...n, pitch: list[i % list.length] }));
-  if (/为什么|乐理|结束|结尾|落下来/.test(prompt)) return { message: theory(project), candidates: [
+  if (role !== 'sound' && /为什么|乐理|结束|结尾|落下来/.test(prompt)) return { message: theory(project), candidates: [
     { title: '落在主音', explanation: '保留前面的旋律和节奏，仅把最后一个音落到当前调性的主音。', patch: { notes: project.notes.map((n, i) => i === project.notes.length - 1 ? { ...n, pitch: 72 } : n) } },
     { title: '保留一点悬念', explanation: '把末音改成当前调式的第七级，比较它与主音的张力。', patch: { notes: project.notes.map((n, i) => i === project.notes.length - 1 ? { ...n, pitch: 71 } : n) } },
   ] };
-  if (/和弦|和声|温暖|低音|编排|声部/.test(prompt)) return { message: '用同一段旋律比较两种和声色彩。候选还会打开和弦声部；提到低音时再加入根音低音。', candidates: [
+  if (role !== 'sound' && /和弦|和声|温暖|低音|编排|声部/.test(prompt)) return { message: '用同一段旋律比较两种和声色彩。候选还会打开和弦声部；提到低音时再加入根音低音。', candidates: [
     { title: '温暖的延伸', explanation: '按当前调式比较第一级与第六级七和弦。', patch: { chords: initialProject.chords.map((c, i) => ({ ...c, start: i * project.bars * 2, duration: project.bars * 2 })), layers: { harmony: true, ...(/低音/.test(prompt) ? { bass: true } : {}) } } },
     { title: '柔和的留白', explanation: '按当前调式从第四级回到主和弦，比较旋律和和弦的关系。', patch: { chords: [{ id: 'chord-demo-f', name: 'Fmaj7', pitches: [53, 57, 60, 64], start: 0, duration: project.bars * 2 }, { ...initialProject.chords[0], start: project.bars * 2, duration: project.bars * 2 }], layers: { harmony: true, ...(/低音/.test(prompt) ? { bass: true } : {}) } } },
   ] };
-  if (/旋律|动机|忧郁|乐句|节奏/.test(prompt)) return { message: '先从两小节的小想法开始。这两个变体保留原有时序，适合直接比较旋律走向。', candidates: [
+  if (role !== 'sound' && /旋律|动机|忧郁|乐句|节奏/.test(prompt)) return { message: '先从两小节的小想法开始。这两个变体保留原有时序，适合直接比较旋律走向。', candidates: [
     { title: '缓缓下落', explanation: '用逐步下行的轮廓形成收拢感；不改变已有节奏。', patch: { notes: pitches([72, 71, 67, 64, 69, 67, 64, 60]) } },
     { title: '轻盈的回应', explanation: '前半句上行，后半句回应，末音落在当前主音，提供稳定落点。', patch: { notes: pitches([64, 67, 72, 71, 67, 69, 64, 72]) } },
   ] };
@@ -108,8 +108,8 @@ function localRuleReply(prompt: string, project: Project): Reply {
   }
   return { message: '本地规则演示支持音色、旋律、和弦与结尾探索。试试“音色再柔和一点”“写一个忧郁动机”“配和弦并加低音”，或在模型设置中连接真实对话模型。', candidates: [] };
 }
-export function localReply(prompt: string, project: Project, selection: number[] = []): Reply {
-  const reply = localRuleReply(prompt, project);
+export function localReply(prompt: string, project: Project, selection: number[] = [], role?: 'sound' | 'composition' | 'coordinator'): Reply {
+  const reply = localRuleReply(prompt, project, role);
   reply.candidates = reply.candidates.map(c => ({ ...c, patch: { ...c.patch,
     ...(c.patch.notes ? { notes: c.patch.notes.map((n, i) => ({ ...n, pitch: /为什么|乐理|结束|结尾|落下来/.test(prompt) && i !== project.notes.length - 1 ? n.pitch : mapPitch(n.pitch, defaultTonality, project.tonality) })) } : {}),
     ...(c.patch.chords ? { chords: c.patch.chords.map(ch => { const pitches = ch.pitches.map(p => mapPitch(p, defaultTonality, project.tonality)); return { ...ch, pitches, name: chordName(pitches) }; }) } : {}),

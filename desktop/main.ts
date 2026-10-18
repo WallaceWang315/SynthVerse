@@ -5,6 +5,7 @@ import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { createApiServer } from '../services/api/server';
 import { parseSettings, type ModelConfig, type SettingsStore } from '../services/api/model-settings';
+import { normalizeAudioEndpoint } from '../services/api/audio-perception';
 
 protocol.registerSchemesAsPrivileged([{ scheme: 'synthverse', privileges: { standard: true, secure: true, supportFetchAPI: true, corsEnabled: true } }]);
 const dataDir = process.env.SYNTHVERSE_TEST_DATA_DIR || path.join(process.env.PORTABLE_EXECUTABLE_DIR || (app.isPackaged ? path.dirname(app.getPath('exe')) : app.getAppPath()), 'SynthVerse-data');
@@ -30,12 +31,20 @@ async function start() {
       try { config.apiKey = safeStorage.decryptString(Buffer.from(stored.encryptedKey, 'base64')); }
       catch { warning = '无法解密旧 Key（例如更换了电脑或账户），请重新填写并保存。'; }
     }
+    if (stored.perception?.endpoint && stored.perception?.model) {
+      config.perception = { endpoint: normalizeAudioEndpoint(stored.perception.endpoint), model: String(stored.perception.model).slice(0, 200), basis: stored.perception.basis === 'embedding-model' ? 'embedding-model' : 'audio-model' };
+      if (stored.perception.encryptedKey) {
+        try { config.perception.apiKey = safeStorage.decryptString(Buffer.from(stored.perception.encryptedKey, 'base64')); }
+        catch { warning = '本机音频服务的旧 Key 无法解密，请重新填写；音乐工程未受影响。'; }
+      }
+    }
   } catch (error) { if ((error as NodeJS.ErrnoException).code !== 'ENOENT') warning = '原模型设置无法读取，请重新填写；音乐工程未受影响。'; }
   const store: SettingsStore = {
     storage: 'API Key 由 Windows 当前账户加密保存。应用和 SynthVerse-data 可一起移动；换电脑后请重新填写 Key。', warning,
     save: async next => {
-      if (next.apiKey && !safeStorage.isEncryptionAvailable()) throw new Error('Encryption unavailable');
-      const persisted = { endpoint: next.endpoint ?? '', model: next.model ?? '', encryptedKey: next.apiKey ? safeStorage.encryptString(next.apiKey).toString('base64') : undefined };
+      if ((next.apiKey || next.perception?.apiKey) && !safeStorage.isEncryptionAvailable()) throw new Error('Encryption unavailable');
+      const persisted = { endpoint: next.endpoint ?? '', model: next.model ?? '', encryptedKey: next.apiKey ? safeStorage.encryptString(next.apiKey).toString('base64') : undefined,
+        perception: next.perception ? { endpoint: next.perception.endpoint, model: next.perception.model, basis: next.perception.basis, encryptedKey: next.perception.apiKey ? safeStorage.encryptString(next.perception.apiKey).toString('base64') : undefined } : undefined };
       await writeFile(`${configPath}.tmp`, JSON.stringify(persisted), { mode: 0o600 });
       await rename(`${configPath}.tmp`, configPath);
     },

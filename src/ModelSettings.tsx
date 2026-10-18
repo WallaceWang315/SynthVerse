@@ -1,3 +1,4 @@
+import AudioModelSettings from './AudioModelSettings';
 import { useEffect, useState } from 'react';
 
 type Settings = { endpoint: string; model: string; hasKey: boolean; storage: string; warning?: string };
@@ -34,5 +35,6 @@ export default function ModelSettings({ onUpdated }: { onUpdated: (model: string
       <div className="model-settings-actions"><button className="editor-button" disabled={!endpoint.trim() || !model.trim()} onClick={() => void act('test')}>测试连接</button><button className="light-button" disabled={!endpoint.trim() || !model.trim()} onClick={() => void act('save')}>保存并使用</button><button className="editor-button" onClick={() => void act('clear')}>清除配置</button></div>
     </fieldset>
     <p role="status" aria-live="polite">{message}</p><small>{config.storage}</small><small>连接测试会发送一次小型模型请求，用于检查工具调用，可能产生少量费用。它不保存配置，也不发送当前音乐。</small>
+    <AudioModelSettings/>
   </div>;
 }

@@ -1,4 +1,5 @@
-import { test, expect } from '@playwright/test';
+import { expect } from '@playwright/test';
+import { test } from './demo-fixture';
 test('actual render feedback, explicit references, goals and preferences survive reload', async ({ page }) => {
   await page.goto('/'); await expect(page.getByText('已在本机保存')).toBeVisible();
   await page.getByText('本次目标与参考', { exact: false }).click();
@@ -12,7 +13,7 @@ test('actual render feedback, explicit references, goals and preferences survive
 });
 test('manual edit cancels a pending Agent job and preserves the new edit', async ({ page }) => {
   await page.goto('/'); await expect(page.getByText('已在本机保存')).toBeVisible();
-  await page.route('**/api/runs/*', async route => { if (route.request().method() === 'GET') { await new Promise(resolve => setTimeout(resolve, 1000)); await route.continue().catch(() => {}); } else await route.continue(); });
+  await page.route('**/api/runs/*', async route => { if (route.request().method() === 'GET') { await new Promise(resolve => setTimeout(resolve, 1000)); await route.fallback().catch(() => {}); } else await route.fallback(); });
   await page.getByRole('textbox', { name: '与灵感伙伴对话' }).fill('音色柔和一点'); await page.getByRole('button', { name: '发送想法' }).click();
   await expect(page.getByRole('button', { name: '取消生成' })).toBeVisible(); await page.getByRole('slider', { name: '明亮度' }).fill('30');
   await expect(page.getByRole('button', { name: '取消生成' })).toHaveCount(0); await expect(page.getByRole('slider', { name: '明亮度' })).toHaveValue('30'); await expect(page.locator('.candidate')).toHaveCount(0);

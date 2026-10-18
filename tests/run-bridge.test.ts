@@ -2,6 +2,7 @@ import http from 'node:http';
 import { afterEach, describe, expect, it } from 'vitest';
 import { createApiServer } from '../services/api/server';
 import { initialProject } from '../src/domain';
+import { packet } from './helpers/listening';
 const servers: http.Server[] = [];
 async function listen(server: http.Server) { servers.push(server); await new Promise<void>(resolve => server.listen(0, '127.0.0.1', resolve)); return `http://127.0.0.1:${(server.address() as { port: number }).port}`; }
 afterEach(async () => { await Promise.all(servers.splice(0).map(s => new Promise<void>(resolve => { s.closeAllConnections(); s.close(() => resolve()); }))); });
@@ -9,6 +10,20 @@ const metrics = { basis: 'browser-offline-audio', durationSeconds: 5, sampleRate
 async function start(url: string) { const response = await fetch(url + '/api/runs', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ prompt: '音色柔和', project: initialProject }) }); expect(response.status).toBe(202); const run = await response.json(); return { url: `${url}/api/runs/${run.runId}`, headers: { Authorization: `Bearer ${run.token}`, 'Content-Type': 'application/json' } }; }
 async function wait(run: Awaited<ReturnType<typeof start>>, check: (data: any) => boolean) { for (let i = 0; i < 100; i++) { const data = await (await fetch(run.url, { headers: run.headers })).json(); if (check(data)) return data; await new Promise(resolve => setTimeout(resolve, 5)); } throw new Error('run did not settle'); }
 describe('browser render job bridge', () => {
+  it('correlates listening packets, rejects wrong feedback and refuses late audio', async () => {
+    const url = await listen(createApiServer());
+    const response = await fetch(url + '/api/runs', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ prompt: '音色柔和', project: initialProject, exploration: 'listening' }) });
+    const info = await response.json(); const run = { url: `${url}/api/runs/${info.runId}`, headers: { Authorization: `Bearer ${info.token}`, 'Content-Type': 'application/json' } };
+    const pending = await wait(run, r => Boolean(r.audioJob));
+    const post = (data: unknown) => fetch(run.url + '/tool-results', { method: 'POST', headers: run.headers, body: JSON.stringify(data) });
+    expect((await post({ jobId: pending.audioJob.id, metrics })).status).toBe(400);
+    const data = { jobId: pending.audioJob.id, packets: pending.audioJob.probes.map(packet) };
+    expect((await post(data)).status).toBe(200); expect((await post(data)).status).toBe(409);
+    const next = await wait(run, r => Boolean(r.audioJob) && r.audioJob.id !== pending.audioJob.id);
+    await fetch(run.url, { method: 'DELETE', headers: run.headers });
+    expect((await post({ jobId: next.audioJob.id, packets: next.audioJob.probes.map(packet) })).status).toBe(409);
+    expect((await wait(run, r => r.state === 'cancelled')).result).toBeUndefined();
+  });
   it('requires a capability token, correlates jobs and rejects duplicate results', async () => { const url = await listen(createApiServer()); const run = await start(url); expect((await fetch(run.url)).status).toBe(404); const first = await wait(run, r => !!r.renderJob); const post = (jobId: string, values = metrics) => fetch(run.url + '/tool-results', { method: 'POST', headers: run.headers, body: JSON.stringify({ jobId, metrics: values }) }); expect((await post(crypto.randomUUID())).status).toBe(409); expect((await post(first.renderJob.id, { ...metrics, rms: -1 })).status).toBe(400); expect((await post(first.renderJob.id)).status).toBe(200); expect((await post(first.renderJob.id)).status).toBe(409); const second = await wait(run, r => r.renderJob && r.renderJob.id !== first.renderJob.id); await post(second.renderJob.id); const complete = await wait(run, r => r.state === 'complete'); expect(complete.result.candidates).toHaveLength(2); expect(complete.result.candidates[0].metrics).toEqual(metrics); expect(initialProject.sound.brightness).toBe(42); });
   it('cancels a waiting render and refuses late results', async () => { const url = await listen(createApiServer()); const run = await start(url); const pending = await wait(run, r => !!r.renderJob); expect((await fetch(run.url, { method: 'DELETE', headers: run.headers })).status).toBe(200); const late = await fetch(run.url + '/tool-results', { method: 'POST', headers: run.headers, body: JSON.stringify({ jobId: pending.renderJob.id, metrics }) }); expect(late.status).toBe(409); const result = await wait(run, r => r.state === 'cancelled'); expect(result.result).toBeUndefined(); });
   it('rejects stable-ID selections outside the supplied project', async () => { const url = await listen(createApiServer()); const response = await fetch(url + '/api/runs', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ prompt: '修改', project: initialProject, selection: ['missing-note'] }) }); expect(response.status).toBe(400); });
